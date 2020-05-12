@@ -8,5 +8,8 @@ class OrdersController < ApplicationController
                         menuitem_price: t.price,
                         menuitem_quantity: t.quantity)
     end
+    @current_user.cartitems.destroy_all
+    flash[:notice] = "Thanks for Buying " + @current_user.first_name + "!"
+    redirect_to userhome_index_path
   end
 end

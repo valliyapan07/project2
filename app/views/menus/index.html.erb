@@ -11,9 +11,9 @@
 <body class="Menus-Page">
   <div class="activemenu">
     <p class="activemenu-name">Activemenu : <%= Menu.find_by(activemenu: true).name %></p>
-    <%= form_with(url: "#", method: "get") do %>
-      <input type="submit" class="home" value="Home">
-    <% end %>
+    <form action= "userhome" method= "get">
+      <%= button_tag(value="Home", class: "home") %>
+    </form>
     <%= form_with(url: "cartitems", method: "delete") do %>
       <input type="submit" class="clear" value="Clear">
     <% end %>

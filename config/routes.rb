@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :cartitems
   resources :orders
+  resources :userhome
   get "/" => "home#index"
   delete "cartitems", to: "cartitems#deleteall"
   get "/sing-in" => "sessions#new", as: :new_sessions

@@ -14,8 +14,8 @@ th{
 td{
   padding: 1vw 1vw;
 }
-.Menus-Page,.Descriptions-Page,.Cartitems-Page{
-  background: black;
+.Menus-Page,.Descriptions-Page,.Cartitems-Page,.Userhome-page{
+  background: #b565a7;
 }
 *{
   box-sizing: border-box;
@@ -172,7 +172,33 @@ table{
   background-color: #2196f3;
   box-shadow: 0 0 10px #2196f3,0 0 40px #2196f3,0 0 80px #2196f3;
 }
-
+.User-details{
+  width: 50vw;
+  margin: 2vw auto;
+  font-size: 1.4vw;
+  font-family: sans-serif;
+}
+.UserDetails-para{
+  margin: 1vw;
+  color: #000;
+}
+.OrderDetails-para{
+  color: #000;
+  margin: 1.2vw;
+  line-height: 2vw;
+}
+.OrderDetails-head{
+  font-size: 1.6vw;
+  margin-bottom: 2vw;
+  color: #fff;
+  text-align: center;
+  background-color: mediumvioletred;
+  padding: 0.5vw 2vw;
+}
+.Order-details{
+  background: rgba(255,255,255,0.1);
+  padding: 2vw 2vw;
+}
 
 @media only screen and (max-width:768px){
   .header{
@@ -237,6 +263,29 @@ table{
   .User-header{
     font-size: 2.9vw;
     padding-top: 2vw;
+  }
+  .User-details{
+    width: 65vw;
+    margin: 2vw auto;
+    font-size: 2.9vw;
+    margin-top: 10%;
+  }
+  .UserDetails-para{
+    margin: 2vw;
+  }
+  .OrderDetails-para{
+    margin: 2vw;
+    line-height: 4.5vw;
+  }
+  .OrderDetails-head{
+    font-size: 3.2vw;
+    padding: 0.8vw;
+    border-radius: 0.8vw;
+    margin-bottom: 3vw;
+  }
+  .Order-details{
+    padding: 3.5vw 2vw;
+    margin-top: 3vw;
   }
 }
 input::-webkit-outer-spin-button,

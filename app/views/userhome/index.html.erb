@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body class="Userhome-page">
+  <form action="/menus" method="get" class="Back-container">
+    <%= button_tag(value="Back",class: "Back") %>
+  </form>
+  <div class="User-details">
+    <p class="UserDetails-para">User name: <%= @current_user.first_name %></p>
+    <p class="UserDetails-para">User id: <%= @current_user.id %></p>
+    <div class="Order-details">
+      <h1 class="OrderDetails-head">Your orders</h1>
+      <% @current_user.orders.order(id: :desc).each do |t| %>
+        <p class="OrderDetails-para">Order id: <%= t.id %></p>
+        <p class="OrderDetails-para">Ordered at: <%= t.ordered_at.localtime.to_s(:short) %></p>
+        <p class="OrderDetails-para">Delivered at: <%= t.delivered_at %></p>
+        <hr>
+      <% end %>
+      <% if @current_user.orders.count == 0 %>
+        <p class="OrderDetails-para">You will see your order details once you place an order!</p>
+      <% end %>
+    <div>
+  <div>
+</body>
