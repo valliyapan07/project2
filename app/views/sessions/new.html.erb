@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body class="Signin-form">
+  <h1 class="FormSection-title">Login to your page!</h1>
+  <Section class="UsersNew">
+    <%= form_with url: sessions_path do |form| %>
+      <div class="Form-section">
+        <p class="FormInput-label">Email</p>
+        <%= form.email_field :email, class: "Form-input" %>
+      </div>
+      <div class="Form-section">
+        <p class="FormInput-label">Password</p>
+        <%= form.password_field :password, class: "Form-input" %>
+      </div>
+      <div class="FormSection-signin">
+        <%= form.submit "Sign in", class: "Form-submit" %>
+      </div>
+    <% end %>
+  </Section>
+</body>

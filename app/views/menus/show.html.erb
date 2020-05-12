@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body class="Descriptions-Page">
+  <div class="activemenu">
+    <form action="/menus" method="get" class="Back-container">
+      <%= button_tag(value="Back",class: "Back2") %>
+    </form>
+    <p class="activemenu-name">Activemenu : <%= Menu.find_by(activemenu: true).name %></p>
+  </div>
+  <div class="Desc">
+    <h1 class="Desc-head"><%= @menuitem.name %></h1>
+    <div class="Desc-detailscontainer">
+      <img src="<%= @menuitem.imgaddr %>" class="image">
+    </div>
+    <p class="Desc-details">Category name: <%= @menuitem.category_name %></p>
+    <p class="Desc-details">Price: Rs.<%= @menuitem.price %></p>
+    <div>
+      <p class="Desc-content">Description:</p>
+      <p class="Desc-content"><%= @menuitem.description %>
+    </div>
+  </div>
+</body>

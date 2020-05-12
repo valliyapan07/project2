@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="Home-page">
+  <p class="Home-head">Welcome to Maharaja Restaurant!</p>
+  <div class="Top-container">
+    <div class="images">
+      <img class="mySlides" src="bgimg4.jpg">
+      <img class="mySlides" src="bgimg2.jpg">
+      <img class="mySlides" src="bgimg3.jpg">
+    </div>
+    <div class="Description">
+      <p class="Description-content1">
+        We are what we eat! So listen to your mouth and just feel the taste. It is going to be Spicy like your friend!
+        and,
+        Taste is our language!
+      </p>
+      <p class="Description-content2">
+        Everyone has a favorite restaurant that he or she loves to eat at. And here we go with the best restaurant to go
+        to. This peaceful place has the most delicious food for all food lovers!
+      </p>
+    </div>
+  </div>
+  <div class="Login">
+    <p class="Login-head">
+      Click sign-up to create a new account or else sign-in.
+    </p>
+    <div class="Login-buttons">
+      <%= link_to "Sign-in", new_sessions_path, class:"signin" %>
+      <%= link_to "Sign-up", new_user_path, class:"signup" %>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+  var myIndex = 0;
+  carousel();
+
+  function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) { myIndex = 1 }
+    x[myIndex - 1].style.display = "block";
+    setTimeout(carousel, 4000); // Change image every 2 seconds
+  }
+</script>

@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body class="Cartitems-Page">
+  <div class="activemenu">
+    <p class="activemenu-name2">Activemenu : <%= Menu.find_by(activemenu: true).name %></p>
+  </div>
+  <form action="/menus" method="get" class="Back-container">
+    <%= button_tag(value="Add more items",class: "Back") %>
+  </form>
+  <% if Cartitem.empty() == false %>
+    <div class="menu-table">
+      <h1 class="Cart-head">Your Cart Items</h1>
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+        <% Cartitem.order(:price).each do |t| %>
+          <tr>
+            <td><%= t.name %></td>
+            <td><%= t.price %></td>
+            <%= form_with(url: "/cartitems/#{t.id}", method: "put") do %>
+              <td class="qty">
+                <button type="button" class="spins" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); this.form.submit()">-</button>
+                <%= number_field_tag(name="quantity",value="#{t.quantity}",class: "table-qty",onclick: "this.form.submit()") %>
+                <button type="button" class="spins" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); this.form.submit()">+</button>
+              </td>
+            <% end %>
+            <td><%= Cartitem.total(t.id) %></td>
+            <a href="javascript:void(0)">
+              <%= form_with(url: "/cartitems/#{t.id}", method: "delete") do %>
+                <td class="delete"><%= image_submit_tag("delete.svg", class: "cartitem-delete") %></td>
+              <% end %>
+            </a>
+          </tr>
+        <% end %>
+      </table>
+      <hr>
+      <p class="grandtotal">Grand Total = <%= Cartitem.sum() %></p>
+      <div class="buttons">
+        <%= form_with(url: "cartitems", method: "delete") do %>
+          <input type="submit" class="cancelorder" value="Cancel order">
+        <% end %>
+        <%= form_with(url: "orders", method: "post") do %>
+          <input type="Submit" class="placeorder" value="Place order">
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <div class="Empty">
+      <h1 class="Empty-head">You have no items in your cart</h1>
+    </div>
+  <% end %>
+</body>

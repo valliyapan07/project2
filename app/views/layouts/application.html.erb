@@ -10,6 +10,25 @@
   </head>
 
   <body>
+    <% if @current_user %>
+      <p class="User-header">
+        Welcome <%= @current_user.first_name %>!
+        <%= link_to "Sign out", destroy_session_path,class: "signout", method: "delete" %>
+      </p>
+      <div class="header">
+        Maharaja Restaurant
+      </div>
+    <% end %>
+    <% if flash[:notice] %>
+      <p class="Flash-notice">
+        <%= flash[:notice] %>
+      </p>
+    <% end %>
+    <% if flash[:error] %>
+      <p class="Flash-error">
+        <%= flash[:error] %>
+      </p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

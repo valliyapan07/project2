@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body class="Menus-Page">
+  <div class="activemenu">
+    <p class="activemenu-name">Activemenu : <%= Menu.find_by(activemenu: true).name %></p>
+    <%= form_with(url: "#", method: "get") do %>
+      <input type="submit" class="home" value="Home">
+    <% end %>
+    <%= form_with(url: "cartitems", method: "delete") do %>
+      <input type="submit" class="clear" value="Clear">
+    <% end %>
+    <form action="cartitems" method="get">
+      <%= button_tag(value="Save", class: "save",onclick: "save()") %>
+    </form>
+  </div>
+  <div class="menu-table">
+    <h1 class="table-head">Menu List</h1>
+    <% Menuitem.category.each do |category_name| %>
+      <h1 class="menuitem-type">
+        <%= category_name.category_name %>
+      </h1>
+
+      <table>
+        <tr>
+          <th class="menu-namecolumn">Item</th>
+          <th>Price</th>
+          <th class="th-qty">Quantity</th>
+          <th>Add</th>
+          <th>Desc.</th>
+        </tr>
+
+        <% Menuitem.match(Menu.activemenu?.id,category_name).each do |mi| %>
+          <tr>
+            <td class="menu-namecolumn"><%= mi.name %></td>
+            <td name="price"><%= mi.price %></td>
+            <form action= '/cartitems' method= "post">
+              <input type="hidden" name="id" value= <%= mi.id %>>
+              <td class="qty">
+                <button type="button" class="spins" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
+                <input type="number" name="quantity" min=0 class="table-qty" required >
+                <button type="button" class="spins" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
+              </td>
+              <td><%= button_tag(value="Add",id: mi.id,class: "table-add") %></td>
+            </form>
+            <form action= '/menus/<%= mi.id %>' method= "get">
+              <td class="img"><%= image_submit_tag('right.png',class: "img-right") %></td>
+            </form>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
+</body>
+<script type="text/javascript">
+  function save() {
+    confirm("your order is saved!");
+  }
+</script>
