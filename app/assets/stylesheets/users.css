@@ -1,0 +1,81 @@
+
+.FormSection-title{
+  font-size: 3vw;
+  margin-top: 5%;
+  margin-bottom: 3vw;
+  color: #fff;
+  text-align: center;
+  font-family: sans-serif;
+}
+.Signup-form,.Signin-form{
+  background: #253970;
+}
+.Form-section{
+  margin-bottom: 2vw;
+}
+.FormSection-signin,.FormSection-signup{
+  text-align: center;
+}
+.FormInput-label{
+  font-size: 1.2vw;
+  margin-bottom: 1vw;
+  color: #fff;
+  font-family: sans-serif;
+}
+.Form-input{
+  font-size: 1.2vw;
+  color: #555555;
+  padding: 0.4vw 1vw;
+  border-radius: 1vw;
+  width: 17vw;
+  border: none;
+  border-style: none;
+  outline: none;
+}
+.Form-submit{
+  color: #fff;
+  background-color: transparent;
+  padding: 0.2vw 0.5vw;
+  font-size: 1.4vw;
+  border: none;
+}
+.Form-submit:hover{
+  color: #255784;
+  background-color: #2196f3;
+  box-shadow: 0 0 10px #2196f3,0 0 40px #2196f3,0 0 80px #2196f3;
+}
+.UsersNew{
+  padding: 4vw 4vw;
+  padding-bottom: 2vw;
+  width: 25vw;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.1);
+}
+
+@media only screen and (max-width:768px){
+  .FormSection-title{
+    font-size: 5vw;
+    margin-top: 10%;
+    margin-bottom: 6vw;
+  }
+  .Form-section{
+    margin-bottom: 4vw;
+  }
+  .FormInput-label{
+    font-size: 2.9vw;
+  }
+  .Form-input{
+    font-size: 2.2vw;
+    width: 20vw;
+    border-radius: 1.5vw;
+    padding: 0.4vw 1.8vw;
+  }
+  .Form-submit{
+    font-size: 2.9vw;
+  }
+  .UsersNew{
+    padding: 4vw 5vw;
+    padding-bottom: 2vw;
+    width: 32vw;
+  }
+}

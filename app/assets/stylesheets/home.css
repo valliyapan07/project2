@@ -1,0 +1,152 @@
+.mySlides{
+  width: 50vw;
+  height: 30vw;
+  animation-name: example;
+  animation-duration: 4s;
+  position: relative;
+  animation-iteration-count: infinite;
+}
+@keyframes example{
+  0%   {top:0%;opacity: 0;}
+  50% {top:4%;opacity: 1;}
+  100%   {top:0%;opacity: 0;}
+}
+
+.Top-container{
+  display: flex;
+  margin: 0% 2%;
+  padding-bottom: 1vw;
+}
+.Home-page{
+  font-family: sans-serif;
+  background: #000;
+}
+.Flash-error{
+    color: #721c24;
+    margin-bottom: 1.2vw;
+    font-size: 1vw;
+    line-height: 1.4vw;
+    background-color: #f8d7da;
+    border: 1.2px solid #721c24;
+    border-radius: 0.4vw;
+    padding: 0.4vw;
+    width: 29vw;
+    margin: 0 auto;
+    margin-top: 3%;
+}
+.Flash-notice{
+  font-size: 1.2vw;
+  line-height: 1.6vw;
+  border-radius: 0.4vw;
+  padding: 0.4vw;
+  width: 52vw;
+  margin: 1.2vw auto;
+  text-align: center;
+  color: #155724;
+  background-color: #8fc79c;
+  border-color: #155724;
+}
+
+.Home-head{
+  color: #fff;
+  font-size: 3vw;
+  text-align: center;
+  padding-top: 1.7vw;
+  margin-bottom: 1.5vw;
+}
+.images{
+  float: left;
+  padding: 0% 1%;
+}
+.Description{
+  font-size: 1.5vw;
+  color: #fff;
+  float: left;
+  padding: 5% 1%;
+  margin: 1% 1%;
+}
+.Description-content1,.Description-content2{
+  margin-bottom: 2vw;
+  line-height: 2.2vw;
+}
+
+.Login-head{
+  color: #fff;
+  text-align: center;
+  font-size: 1.5vw;
+  margin: 2vw;
+}
+.signin,.signup{
+  color: #2196f3;
+  background-color: transparent;
+  text-decoration: none;
+  border-style: none;
+  margin-right: 2vw;
+  border: 1px solid #BFB8CC;
+  padding: 0.5vw 0.8vw;
+  font-size: 1.5vw;
+}
+.signin:hover,.signup:hover{
+  color: #255784;
+  background-color: #2196f3;
+  box-shadow: 0 0 10px #2196f3,0 0 40px #2196f3,0 0 80px #2196f3;
+}
+.Login-buttons{
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width:768px){
+  .mySlides{
+    width: 70vw;
+    margin: 0 auto;
+    height: 40vw;
+  }
+  .Top-container{
+    display: grid;
+    margin: 0% 3%;
+    padding-bottom: 1.5vw;
+  }
+  .Home-head{
+    font-size: 5vw;
+    padding-top: 2.4vw;
+    margin-bottom: 4vw;
+    margin-top: 8vw;
+  }
+  .Description{
+    font-size: 2.9vw;
+    padding: 7% 4%;
+    padding-bottom: 0%;
+  }
+  .Description-content1,.Description-content2{
+    line-height: 4.4vw;
+    margin-bottom: 3.8vw;
+  }
+  .Description-content2{
+    margin-bottom: 0vw;
+  }
+  .Login-head{
+    font-size: 2.9vw;
+    margin: 3vw;
+    margin-top: 4.5vw;
+  }
+  .signin,.signup{
+    font-size: 2.9vw;
+    margin-right: 5vw;
+    padding: 1vw 1vw;
+  }
+  .Flash-error{
+    font-size: 2.4vw;
+    line-height: 3vw;
+    width: 72vw;
+    border-radius: 0.8vw;
+    margin-top: 7%;
+  }
+  .Flash-notice{
+    font-size: 2.4vw;
+    margin-top: 7%;
+    border-radius: 0.8vw;
+    padding: 1.2vw;
+    width: 75vw;
+  }
+}
