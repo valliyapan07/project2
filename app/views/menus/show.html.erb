@@ -13,7 +13,6 @@
     <form action="/menus" method="get" class="Back-container">
       <%= button_tag(value="Back",class: "Back2") %>
     </form>
-    <p class="activemenu-name">Activemenu : <%= Menu.find_by(activemenu: true).name %></p>
   </div>
   <div class="Desc">
     <h1 class="Desc-head"><%= @menuitem.name %></h1>

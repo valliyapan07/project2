@@ -14,9 +14,6 @@
     <form action= "userhome" method= "get">
       <%= button_tag(value="Home", class: "home") %>
     </form>
-    <%= form_with(url: "cartitems", method: "delete") do %>
-      <input type="submit" class="clear" value="Clear">
-    <% end %>
     <form action="cartitems" method="get">
       <%= button_tag(value="Save", class: "save",onclick: "save()") %>
     </form>

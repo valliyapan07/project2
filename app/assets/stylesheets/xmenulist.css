@@ -50,18 +50,15 @@ table{
   font-size: 1vw;
 }
 .table-add{
-  color: #000;
-  background-color: transparent;
+  color: #fff;
+  background-color: mediumvioletred;
   font-size: 1.4vw;
   border-style: none;
+  border-radius: 0.5vw;
   font-family: sans-serif;
-  padding: 0.5vw 2vw;
+  padding: 0.4vw 0.8vw;
 }
 
-.checked{
-  visibility: hidden;
-  width: 2.6vw;
-}
 .buttons{
   display: flex;
 }
@@ -91,7 +88,7 @@ table{
   margin-bottom: 1.5vw;
 }
 .img-right{
-  width: 2.6vw;
+  transform: scale(1.8);
 }
 .spins{
   outline:none;
@@ -133,7 +130,7 @@ table{
   padding: 0.2vw 2vw;
   float: left;
   font-size: 1.4vw;
-  width: 78vw;
+  width: 83vw;
 }
 .activemenu-name2{
   padding: 0.2vw 2vw;
@@ -141,16 +138,17 @@ table{
   font-size: 1.4vw;
   width: 88vw;
 }
-.save,.clear,.home,.signout,.Back2{
+.save,.home,.signout,.Back2{
   float: right;
-  background-color: transparent;
+  background-color: mediumvioletred;
   color: #fff;
   margin: 0vw 0vw;
   border-style: none;
   font-family: sans-serif;
   font-size: 1.4vw;
   margin-right: 1.5vw;
-  padding: 0.2vw 0.5vw;
+  border-radius: 0.5vw;
+  padding: 0.4vw 0.7vw;
 }
 .signout{
   text-decoration: none;
@@ -167,7 +165,7 @@ table{
 .Back2{
   margin-left: 1.5vw;
 }
-.save:hover,.home:hover,.clear:hover,.signout:hover,.table-add:hover,.Back2:hover{
+.save:hover,.home:hover,.signout:hover,.table-add:hover,.Back2:hover{
   color: #255784;
   background-color: #2196f3;
   box-shadow: 0 0 10px #2196f3,0 0 40px #2196f3,0 0 80px #2196f3;
@@ -202,7 +200,7 @@ table{
 
 @media only screen and (max-width:768px){
   .header{
-    font-size: 5vw;
+    font-size: 5.5vw;
     margin-bottom: 5vw;
     padding: 9vw;
     padding-top: 4vw;
@@ -211,39 +209,45 @@ table{
     padding: 3vw;
     margin-bottom: 2.7vw;
   }
-  .save,.clear,.home,.signout,.Back2{
-    font-size: 2.9vw;
-    margin-right: 1vw;
+  .save,.home,.signout,.Back2{
+    font-size: 3.1vw;
+    margin-right: 2.5vw;
+    padding: 0.7vw 0.9vw;
+    border-radius: 0.8vw;
   }
   .activemenu-name,.activemenu-name2{
-    font-size: 2.9vw;
+    font-size: 3.1vw;
     padding-right: 18vw;
     font-family: sans-serif;
     line-height: 3.6vw;
   }
   .menu-table{
     padding: 2vw 2.5vw;
-    width: 75vw;
+    width: 78vw;
+    margin-top: 3.5vw;
   }
   .table-head,.Cart-head,.Desc-head{
-    font-size: 2.9vw;
+    font-size: 3.2vw;
     margin-top: 0vw;
     margin: 1.8vw 0vw;
     padding: 0.7vw 0vw;
   }
   .table-add{
-    font-size: 2.9vw;
+    font-size: 3vw;
+    padding: 0.7vw 0.9vw;
+    border-radius: 0.8vw;
   }
   .menuitem-type{
     margin: 2.5vw 0vw;
     font-size: 3.2vw;
   }
   th,td{
-    font-size: 2.9vw;
-    padding: 1.5vw 1.2vw;
-    line-height: 3.6vw;
+    font-size: 3.1vw;
+    padding: 1.8vw 1.2vw;
+    line-height: 3.8vw;
+    color: #fff;
   }
-  .img-right,.checked{
+  .img-right{
     width: 2.6vw;
   }
   .table-qty{
@@ -255,19 +259,19 @@ table{
     font-size: 2.9vw;
   }
   .cancelorder, .placeorder{
-    font-size: 2.9vw;
+    font-size: 3.1vw;
   }
   .cancelorder{
-    margin-right: 32vw;
+    margin-right: 34vw;
   }
   .User-header{
-    font-size: 2.9vw;
+    font-size: 3.1vw;
     padding-top: 2vw;
   }
   .User-details{
     width: 65vw;
     margin: 2vw auto;
-    font-size: 2.9vw;
+    font-size: 3.1vw;
     margin-top: 10%;
   }
   .UserDetails-para{

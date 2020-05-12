@@ -136,17 +136,19 @@
     padding: 1vw 1vw;
   }
   .Flash-error{
-    font-size: 2.4vw;
-    line-height: 3vw;
+    font-size: 3vw;
+    line-height: 4vw;
     width: 72vw;
     border-radius: 0.8vw;
     margin-top: 7%;
+    padding: 1.4vw 0.5vw;
   }
   .Flash-notice{
-    font-size: 2.4vw;
+    font-size: 2.9vw;
+    line-height: 4vw;
     margin-top: 7%;
     border-radius: 0.8vw;
-    padding: 1.2vw;
+    padding: 1.4vw 0.5vw;
     width: 75vw;
   }
 }
