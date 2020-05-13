@@ -33,7 +33,7 @@ hr{
   box-sizing: border-box;
 }
 .Desc-detailscontainer{
-  width: 18vw;
+  width: 20vw;
   margin: 0 auto;
   margin-bottom: 2.6vw;
 }
@@ -41,6 +41,10 @@ hr{
   margin-bottom: 1.4vw;
   text-align: center;
   font-size: 1.4vw;
+}
+.DescContent-head{
+  font-size: 1.6vw;
+  margin-bottom: 2.4vw;
 }
 .Desc-content{
   margin-bottom: 2.6vw;
@@ -57,6 +61,7 @@ hr{
   font-family: sans-serif;
   border-radius: 0.5vw;
   padding: 0.4vw 0.7vw;
+  border: 1px solid #BFB8CC;
 }
 
 .Back:hover{
@@ -71,8 +76,9 @@ hr{
 
 .image{
   margin-top: 2.6vw;
-  width: inherit;
-  height: 18vw;
+  width: 20vw;
+  height: 20vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 @media only screen and (max-width:768px){
   .cartitem-delete{
@@ -82,7 +88,7 @@ hr{
     width: 65vw;
   }
   .Desc-detailscontainer{
-    width: 25vw;
+    width: 30vw;
   }
   .grandtotal{
     margin-top: 2vw;
@@ -91,22 +97,29 @@ hr{
   }
   .image{
     margin-top: 2vw;
-    height: 25vw;
+    height: 30vw;
+    width: 30vw;
   }
   .Desc-details{
     font-size: 2.9vw;
     margin-bottom: 2.9vw;
   }
+  .DescContent-head{
+    font-size: 3.1vw;
+    margin-bottom: 1.4vw;
+  }
   .Desc-content{
     margin-bottom: 1.4vw;
     line-height: 4.5vw;
     font-size: 2.9vw;
+    color: #fff;
   }
   .Back{
     font-size: 2.9vw;
     padding: 0.7vw 0.9vw;
     border-radius: 0.8vw;
     margin-left: 4.5vw;
+    border: none;
   }
   .Empty-head{
     font-size: 2.9vw;

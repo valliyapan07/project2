@@ -18,7 +18,7 @@
       <h1 class="OrderDetails-head">Your orders</h1>
       <% @current_user.orders.order(id: :desc).each do |t| %>
         <p class="OrderDetails-para">Order id: <%= t.id %></p>
-        <p class="OrderDetails-para">Ordered at: <%= t.ordered_at.localtime.to_s(:short) %></p>
+        <p class="OrderDetails-para">Ordered at: <%= t.ist(t.ordered_at) %></p>
         <p class="OrderDetails-para">Delivered at: <%= t.delivered_at %></p>
         <hr>
       <% end %>

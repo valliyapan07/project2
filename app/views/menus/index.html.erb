@@ -56,8 +56,12 @@
     <% end %>
   </div>
 </body>
-<script type="text/javascript">
+<script>
   function save() {
-    confirm("your order is saved!");
+    <% if Cartitem.count != 0 %>
+      alert("Your order is saved!");
+    <% else %>
+      alert("Please select items!");
+    <% end %>
   }
 </script>

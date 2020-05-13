@@ -64,7 +64,7 @@ table{
 }
 
 .cancelorder, .placeorder{
-  background-color: green;
+  background-color: mediumvioletred;
   color: #fff;
   font-size: 1.4vw;
   margin-top: 1vw;
@@ -75,6 +75,11 @@ table{
 }
 .cancelorder{
   margin-right: 30vw;
+}
+.cancelorder:hover, .placeorder:hover{
+  color: #255784;
+  background-color: #2196f3;
+  box-shadow: 0 0 10px #2196f3,0 0 40px #2196f3,0 0 80px #2196f3;
 }
 .header{
   padding: 3.5vw;
@@ -149,6 +154,7 @@ table{
   margin-right: 1.5vw;
   border-radius: 0.5vw;
   padding: 0.4vw 0.7vw;
+  border: 1px solid #BFB8CC;
 }
 .signout{
   text-decoration: none;
@@ -214,6 +220,7 @@ table{
     margin-right: 2.5vw;
     padding: 0.7vw 0.9vw;
     border-radius: 0.8vw;
+    border: none;
   }
   .activemenu-name,.activemenu-name2{
     font-size: 3.1vw;
@@ -260,6 +267,7 @@ table{
   }
   .cancelorder, .placeorder{
     font-size: 3.1vw;
+    border: none;
   }
   .cancelorder{
     margin-right: 34vw;
