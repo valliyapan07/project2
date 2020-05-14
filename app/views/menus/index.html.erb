@@ -15,12 +15,12 @@
       <%= button_tag(value="Home", class: "home") %>
     </form>
     <form action="cartitems" method="get">
-      <%= button_tag(value="Save", class: "save",onclick: "save()") %>
+      <%= button_tag(value="Cart", class: "save",onclick: "save()") %>
     </form>
   </div>
   <div class="menu-table">
     <h1 class="table-head">Menu List</h1>
-    <% Menuitem.category.each do |category_name| %>
+    <% Menuitem.order(:category_name).category.each do |category_name| %>
       <h1 class="menuitem-type">
         <%= category_name.category_name %>
       </h1>
@@ -38,18 +38,20 @@
           <tr>
             <td class="menu-namecolumn"><%= mi.name %></td>
             <td name="price"><%= mi.price %></td>
-            <form action= '/cartitems' method= "post">
-              <input type="hidden" name="id" value= <%= mi.id %>>
-              <td class="qty">
+            <td>
+              <form action= '/cartitems' method= "post" id="<%= mi.id %>"  class="qty">
+                <input type="hidden" name="id" value= <%= mi.id %>>
                 <button type="button" class="spins" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
                 <input type="number" name="quantity" min=0 class="table-qty" required >
                 <button type="button" class="spins" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
-              </td>
-              <td><%= button_tag(value="Add",id: mi.id,class: "table-add") %></td>
-            </form>
-            <form action= '/menus/<%= mi.id %>' method= "get">
-              <td class="img"><%= image_submit_tag('right.png',class: "img-right") %></td>
-            </form>
+              </form>
+            </td>
+            <td><%= button_tag(value="Add",class: "table-add",form: mi.id) %></td>
+            <td class="img">
+              <form action= '/menus/<%= mi.id %>' method= "get">
+                <%= image_submit_tag('right.png',class: "img-right") %>
+              </form>
+            </td>
           </tr>
         <% end %>
       </table>
@@ -58,8 +60,8 @@
 </body>
 <script>
   function save() {
-    <% if Cartitem.count != 0 %>
-      alert("Your order is saved!");
+    <% if @current_user.cartitems.count != 0 %>
+      alert("Your order is saved to Cart!");
     <% else %>
       alert("Please select items!");
     <% end %>

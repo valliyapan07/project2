@@ -29,19 +29,21 @@
         <tr>
           <td><%= t.name %></td>
           <td><%= t.price %></td>
-          <%= form_with(url: "/cartitems/#{t.id}", method: "put") do %>
-            <td class="qty">
+          <td>
+            <%= form_with(url: "/cartitems/#{t.id}", method: "put", class: "qty") do %>
               <button type="button" class="spins" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); this.form.submit()">-</button>
               <%= number_field_tag(name="quantity",value="#{t.quantity}",class: "table-qty",onclick: "this.form.submit()") %>
               <button type="button" class="spins" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); this.form.submit()">+</button>
-            </td>
-          <% end %>
-          <td><%= @cartitems.total(t.id) %></td>
-          <a href="javascript:void(0)">
-            <%= form_with(url: "/cartitems/#{t.id}", method: "delete") do %>
-              <td class="delete"><%= image_submit_tag("delete.svg", class: "cartitem-delete") %></td>
             <% end %>
-          </a>
+          </td>
+          <td><%= @cartitems.total(t.id) %></td>
+          <td class="delete">
+            <a href="javascript:void(0)">
+              <%= form_with(url: "/cartitems/#{t.id}", method: "delete") do %>
+                <%= image_submit_tag("delete.png", class: "cartitem-delete") %>
+              <% end %>
+            </a>
+          </td>
         </tr>
       <% end %>
     </table>

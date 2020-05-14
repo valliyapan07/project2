@@ -71,7 +71,7 @@ hr{
 }
 
 .cartitem-delete{
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
 
 .image{
@@ -88,7 +88,7 @@ hr{
     width: 65vw;
   }
   .Desc-detailscontainer{
-    width: 30vw;
+    width: 44vw;
   }
   .grandtotal{
     margin-top: 2vw;
@@ -97,12 +97,13 @@ hr{
   }
   .image{
     margin-top: 2vw;
-    height: 30vw;
-    width: 30vw;
+    height: 44vw;
+    width: 44vw;
   }
   .Desc-details{
     font-size: 2.9vw;
     margin-bottom: 2.9vw;
+    color: #fff;
   }
   .DescContent-head{
     font-size: 3.1vw;

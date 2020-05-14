@@ -1,5 +1,6 @@
 class Menu < ActiveRecord::Base
   has_many :menu_items
+  $vvv
 
   def display_menu
     "#{name}"

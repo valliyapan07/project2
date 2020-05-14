@@ -113,6 +113,9 @@ table{
   display: flex;
   justify-content: center;
 }
+.form{
+  display: flex;
+}
 .table-head,.Cart-head,.Desc-head{
   text-align: center;
   color: #fff;
@@ -218,7 +221,7 @@ table{
   .save,.home,.signout,.Back2{
     font-size: 3.1vw;
     margin-right: 2.5vw;
-    padding: 0.7vw 0.9vw;
+    padding: 0.7vw 1.1vw;
     border-radius: 0.8vw;
     border: none;
   }
@@ -227,6 +230,7 @@ table{
     padding-right: 18vw;
     font-family: sans-serif;
     line-height: 3.6vw;
+    width: 80vw;
   }
   .menu-table{
     padding: 2vw 2.5vw;

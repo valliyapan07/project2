@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email_id: params[:email])
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
-      flash[:notice] = "Successfully signed in."
+      flash[:notice] = user.first_name + ", you have Successfully Signed in."
       redirect_to menus_path
     else
       flash[:error] = "Your login attempt was invalid. Please retry."
