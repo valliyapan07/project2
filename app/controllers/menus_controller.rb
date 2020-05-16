@@ -7,6 +7,5 @@ class MenusController < ApplicationController
 
   def show
     @menuitem = Menuitem.find(params[:id])
-    #render "show"
   end
 end
