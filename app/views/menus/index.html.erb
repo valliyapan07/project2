@@ -18,6 +18,11 @@
       <%= button_tag(value="Cart", class: "save",onclick: "save()") %>
     </form>
   </div>
+    <% if @current_user.first_name == "Walk-incustomer" %>
+      <form action= "#" method= "get" class="pendingcontainer">
+        <%= button_tag(value="Pending orders", class: "pending") %>
+      </form>
+    <% end %>
   <div class="menu-table">
     <h1 class="table-head">Menu List</h1>
     <% Menuitem.order(:category_name).category.each do |category_name| %>

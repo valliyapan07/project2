@@ -146,7 +146,7 @@ table{
   font-size: 1.4vw;
   width: 88vw;
 }
-.save,.home,.signout,.Back2{
+.save,.home,.signout,.Back2,.pending{
   float: right;
   background-color: mediumvioletred;
   color: #fff;
@@ -158,6 +158,13 @@ table{
   border-radius: 0.5vw;
   padding: 0.4vw 0.7vw;
   border: 1px solid #BFB8CC;
+}
+.pendingcontainer{
+  display: flex;
+  margin-bottom: 1.2vw;
+}
+.pending{
+  margin-left: 5%;
 }
 .signout{
   text-decoration: none;
@@ -218,7 +225,7 @@ table{
     padding: 3vw;
     margin-bottom: 2.7vw;
   }
-  .save,.home,.signout,.Back2{
+  .save,.home,.signout,.Back2,.pending{
     font-size: 3.1vw;
     margin-right: 2.5vw;
     padding: 0.7vw 1.1vw;
