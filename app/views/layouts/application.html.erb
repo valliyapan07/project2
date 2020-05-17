@@ -12,7 +12,11 @@
   <body>
     <% if @current_user %>
       <p class="User-header">
-        Welcome <%= @current_user.first_name %>!
+        <% if @current_user.first_name == "Walk-incustomer" %>
+          Welcome <%= @current_billingclerk.first_name %>!
+        <% else %>
+          Welcome <%= @current_user.first_name %>!
+        <%end%>
         <%= link_to "Sign out", destroy_session_path,class: "signout", method: "delete" %>
       </p>
       <div class="header">

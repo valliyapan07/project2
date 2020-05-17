@@ -12,7 +12,7 @@
   <div class="activemenu">
     <p class="activemenu-name2">Activemenu : <%= Menu.find_by(activemenu: true).name %></p>
   </div>
-  <form action="/menus" method="get" class="Back-container">
+  <form action="/menus" method="get">
     <%= button_tag(value="Add more items",class: "Back") %>
   </form>
   <div class="menu-table">

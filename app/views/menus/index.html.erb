@@ -9,6 +9,18 @@
 </head>
 
 <body class="Menus-Page">
+  <div class="Search-container">
+    <div class="SearchBar">
+      <input class="Search" type="text" id="searchbar" placeholder="Search here" onkeyup="myfunc()">
+      <input class="Go" type="button" value="Go!" onclick="scrollfunc()">
+    </div>
+    <ul class="datalist" id="myul">
+      <% Menuitem.all.each do |t| %>
+        <li class="Option" id="<%= t %>" onclick="myfunc2(this.id)"><%= t.name %></li>
+      <% end %>
+    </ul>
+
+  </div>
   <div class="activemenu">
     <p class="activemenu-name">Activemenu : <%= Menu.find_by(activemenu: true).name %></p>
     <form action= "userhome" method= "get">
@@ -19,7 +31,7 @@
     </form>
   </div>
     <% if @current_user.first_name == "Walk-incustomer" %>
-      <form action= "#" method= "get" class="pendingcontainer">
+      <form action= "/pendingorders" method= "get" class="pendingcontainer">
         <%= button_tag(value="Pending orders", class: "pending") %>
       </form>
     <% end %>
@@ -40,7 +52,7 @@
         </tr>
 
         <% Menuitem.match(Menu.activemenu?.id,category_name).each do |mi| %>
-          <tr>
+          <tr id = "<%= mi.name %>">
             <td class="menu-namecolumn"><%= mi.name %></td>
             <td name="price"><%= mi.price %></td>
             <td>
@@ -70,5 +82,33 @@
     <% else %>
       alert("Please select items!");
     <% end %>
+  }
+  function myfunc()
+  {
+    var text = document.getElementById("searchbar").value.toUpperCase();
+    let ul = document.getElementById("myul");
+    let li = ul.getElementsByTagName("li");
+    for(var i = 0; i < li.length; i++)
+    {
+      if(li[i].textContent.toUpperCase().startsWith(text) && text.length > 0)
+      {
+        li[i].style.display = "block";
+      }
+      else
+      {
+        li[i].style.display = "none";
+      }
+    }
+  }
+  function myfunc2(id)
+  {
+    var text = document.getElementById(id).textContent;
+    document.getElementById("searchbar").value = text;
+  }
+  function scrollfunc()
+  {
+    var id = document.getElementById("searchbar").value;
+    var elem = document.getElementById(id);
+    elem.scrollIntoView();
   }
 </script>

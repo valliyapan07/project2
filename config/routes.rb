@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :cartitems
   resources :orders
   resources :userhome
+  resources :pendingorders
   get "/" => "home#index"
   delete "cartitems", to: "cartitems#deleteall"
   get "/sing-in" => "sessions#new", as: :new_sessions

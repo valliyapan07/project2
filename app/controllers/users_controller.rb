@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     )
     if user.save
       session[:current_user_id] = user.id
-      flash[:notice] = user.first_name + ", you have Successfully Signed in!"
+      flash[:notice] = user.first_name + ", you have successfully signed in!"
       redirect_to menus_path
     else
       flash[:error] = user.errors.full_messages.join(", ")
