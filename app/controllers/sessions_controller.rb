@@ -7,9 +7,14 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email_id: params[:email])
     if user && user.authenticate(params[:password])
-      session[:current_user_id] = user.id
-      flash[:notice] = user.first_name + ", you have successfully signed in."
-      redirect_to menus_path
+      if user.email_confirmed
+        session[:current_user_id] = user.id
+        flash[:notice] = user.first_name + ", you have successfully signed in."
+        redirect_to menus_path
+      else
+        flash[:error] = "Verify your mail to sign in!"
+        redirect_to new_sessions_path
+      end
     else
       flash[:error] = "Your login attempt was invalid. Please retry."
       redirect_to new_sessions_path

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :menus
-  resources :users
+  resources :users do
+    member do
+      get :confirm_email
+    end
+  end
   resources :cartitems
   resources :orders
   resources :userhome
