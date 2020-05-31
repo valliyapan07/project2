@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+<div class="Design3">
+   <div class="Search-order">
+<%= form_with(url: "/users/details", method: "patch") do %>
+  <div class="Srch1">
+    <%= image_submit_tag('search.svg',class: "Search-img1") %>
+    <input class="Search1" name=user_name type="text" autocomplete="off" placeholder="Type here to Search" id="Search" onkeyup="searchFunc()">
+
+  </div>
+  <% end%>
+
+  <ul class="Unordered-list2" id="List">
+  <% User.show.each do |user|%>
+    <li class="Checker-list" onclick="MyFunc(this.id)" id="<%=user.first_name %>"> <%=user.first_name+" "+user.last_name%></li>
+  <% end %>
+  </ul>
+  <div class="Report">
+    <h1>Start Date:</h1>
+    <input class="Start" type="Date" placeholder="dd/mm/yyyy" name="from_date">
+    <h1>End Date:</h1>
+    <input class="End" type="Date" placeholder="dd/mm/yyyy" name="to_date">
+  </div>
+  </div>
+</body>
+
+</html>
+<script>
+
+function searchFunc() {
+    let filter = document.getElementById('Search').value.toUpperCase();
+    let list = document.getElementById('List');
+    let li = list.getElementsByTagName('li');
+    for(var i=0;i<li.length;i++)
+    {
+
+        if(li[i])
+        {
+          if(li[i].textContent.toUpperCase().indexOf(filter) > -1 && filter.length!=0)
+        {
+          li[i].style.display="block";
+        }
+        else{
+          li[i].style.display="none";
+        }
+        }
+      }
+    }
+    function MyFunc(id) {
+    var name = document.getElementById(id).textContent;
+    document.getElementById("Search").value = name;
+     let list = document.getElementById('List');
+     list.style.display="none";
+
+    }
+</script>

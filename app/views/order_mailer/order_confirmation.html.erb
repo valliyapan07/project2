@@ -1,0 +1,8 @@
+Thanks for buying <%= @user.first_name %>!
+
+Your order will be delivered soon!
+
+Order items:
+<% @order.orderitems.all.each do |t| %>
+  <%= t.menuitem_name %>
+<% end %>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <%# <script src="https://kit.fontawesome.com/fc0bcca8a3.js" crossorigin="anonymous"></script> %>
+</head>
+
+
+<body>
+
+
+  <div class="Search-box">
+  <%= form_with(url: "/users/select", method: "patch") do %>
+  <div class="Srch">
+    <%= image_submit_tag('search.svg',class: "Search-img") %>
+    <input class="Search2" name="user_name" autocomplete="off" type="text" placeholder="Type here to Search" id="Search" onkeyup="searchFunc()">
+    <%= submit_tag("View Details", class: "View-details",onclick: "Func1()") %>
+  </div>
+  <% end %>
+  <table class="Search-table" id="mytable">
+<tr>
+    <th style=>user-Id</th>
+    <th style="width:100%;">Name</th>
+    </tr>
+    <% User.show.each do |user|%>
+ <tr onclick="MyFunc(<%= user.first_name%>)">
+    <td> <%= user.id%></td>
+    <td id="<%= user.first_name%>" onclick="MyFunc(this.id)"> <%=user.first_name+" "+user.last_name%></td>
+  </tr>
+  <% end %>
+  </table>
+  </div>
+  <div class="Search-container" id="Search-container">
+  <%= image_submit_tag("user.png",class: "User-png") %>
+    <h1 class="User-title">User Details</h1><hr>
+    <% if @users == nil%>
+    <h1 class=<%= @users?"found": "Not-found"%>>User not Found!!</h1>
+    <% else %>
+    <div class="Search-details">
+      <h1>User-Id</h1>
+      <h1 style="margin-left:4.5vw;">:</h1>
+      <p>01</p>
+    </div>
+    <div class="Search-details">
+      <h1>First Name  </h1>
+      <h1 style="margin-left:1vw;">:</h1>
+      <p><%= @users.first_name%></p>
+    </div>
+    <div class="Search-details">
+      <h1>Last Name  </h1>
+      <h1 style="margin-left:1.4vw;">:</h1>
+      <p><%= @users.last_name%></p>
+    </div>
+    <div class="Search-details">
+      <h1>Email-Id  </h1>
+      <h1 style="margin-left:3.5vw;">:</h1>
+      <p><%= @users.email_id%></p>
+    </div>
+    <div class="Search-details" >
+      <h1>Role  </h1>
+      <h1 style="margin-left:7.5vw;">:</h1>
+      <p><%= @users.role%></p>
+    </div>
+    <div class="Search-details1">
+       <h1>Account created at</h1>
+    </div>
+    <div class="Search-details2">
+       <h1 style="margin-bottom:4vw;">Date & Time</h1>
+       <h1 style="margin-left:0vw;">:</h1>
+       <p><%= @users.created_at.to_s(:long)%></p>
+    </div>
+    <% end %>
+  </div>
+</body>
+
+</html>
+<script>
+  function searchFunc() {
+
+
+    let filter = document.getElementById('Search').value.toUpperCase();
+    let table = document.getElementById('mytable');
+    let tr = table.getElementsByTagName('tr');
+    var s=0;
+    for(var i=1;i<tr.length;i++)
+    {
+      let td = tr[i].getElementsByTagName('td')[1];
+      if(td){
+
+        let textvalue = td.textContent;
+        if(textvalue.toUpperCase().indexOf(filter) > -1){
+
+          tr[i].style.display="";
+          table.style.display="block";
+        } else{
+          tr[i].style.display="none";
+          s++;
+        }
+        if(filter=="" || s==tr.length-1)
+        {
+          table.style.display="none";
+        }
+      }
+
+    }
+  }
+  function Func1() {
+    document.getElementById("Search-container").style.display="block";
+  }
+  function MyFunc(id) {
+    var name = document.getElementById(id);
+    document.getElementById("Search").value = name.textContent;
+    let table = document.getElementById('mytable');
+    table.style.display="none";
+  }
+</script>

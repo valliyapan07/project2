@@ -22,4 +22,13 @@ class ApplicationController < ActionController::Base
       nil
     end
   end
+
+  def selected_menu
+    return @current_menu if @current_menu
+    if session[:menu]
+      @current_menu = session[:menu]
+    else
+      @current_menu = Menu.first.name
+    end
+  end
 end

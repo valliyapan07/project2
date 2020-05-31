@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <%# <script src="https://kit.fontawesome.com/fc0bcca8a3.js" crossorigin="anonymous"></script> %>
+  <style>
+    .Orders-design{
+      color: #f53d30;
+      border-left: .3 vw solid #f53d30;
+    }
+  </style>
+</head>
+
+<body>
+
+<%= form_with(url: "/orders/hold", method: "post") do %>
+  <div class="Report">
+    <h1>Start Date:</h1>
+    <input class="Start" type="Date" placeholder="dd/mm/yyyy" name="from_date">
+    <h1>End Date:</h1>
+    <input class="End" type="Date" placeholder="dd/mm/yyyy" name="to_date">
+  </div>
+  <%= submit_tag("View Report",class: "View") %>
+<% end %>
+<%= form_with(url: "/orders/select", method: "post") do %>
+<div class="Filter-Modal" id="filter">
+
+  <div class="Filter">
+  <label>
+   <input type="radio" name="filter" value="DP">Delivered + pending
+  </label>
+  <label>
+   <input type="radio" name="filter" value="D">Delivered alone
+  </label>
+  <label>
+    <input type="radio"  name="filter" value="P">Pending alone
+  </label>
+  <input type="image" src="cancel.png" alt="Submit" class="Modal-close" onclick=func3()>
+  <%= submit_tag("Apply",class: "Apply") %>
+  </div>
+
+</div>
+ <% end %>
+<% if @from=="" || @to=="" ||Order.display(@from,@to,@filter)==[]%>
+<div class="Report-container">
+  <h1 class="Orders-title1">Orders-not Found </h1>
+  </div>
+<% else %>
+<% Order.display(@from,@to,@filter).each do |order|%>
+   <div class="Modal-bg" id="<%= order.id%>">
+    <div class="Modal">
+    <div class="Border">
+     <ol>
+      <li class="OrderList">
+        <div class="Box1">
+          <h1>Name : </h1>
+          <h1><%= order.show_name%></h1>
+        </div>
+        <h1>Items</h1>
+        <ul>
+        <% order.orderitems.each do |orderitem|%>
+          <li>
+            <p class="Display-name"><%= orderitem.menuitem_name%></p>
+            <h2 class="Display-total"><%= orderitem.menuitem_quantity%> x <%= orderitem.menuitem_price%> = <%=orderitem.total%></h2>
+          </li>
+          <% end %>
+        </ul>
+        <h1></h1>
+        <div style="display:flex;">
+          <h1 class="Display-name1">Total Amount:</h1>
+          <p class="Display-total1">Rs.<%= Order.total(order.id)%></p>
+        </div>
+        <h1>Ordered on</h1>
+        <p><%= order.ordered_at.strftime("%d-%b-%Y")%> at <%= order.ordered_at.strftime("%I:%M %p")%></p>
+        <hr style="color:red;">
+        <div class="Box1">
+          <h1>Delivery status :</h1>
+          <h2 class=<%= order.delivered_at ? "Delivered" : "Pending"%>><%= order.delivered_at ? "Delivered" : "Pending"%></h2>
+
+        </div>
+         <%= form_with(url: "/orders/#{order.id}", method: "put") do %>
+        <div class="Box1">
+        <%= check_box_tag(name="delivered",
+                              value=nil,
+                              checked=order.delivered_at ? true : false ,
+                              class: "CheckBox",
+                              onclick:"this.form.submit()"
+                             )
+            %>
+            <h1 style="margin-top:0.5vw;">Click this to mark as <%= order.delivered_at ? "Pending" : "Delivered"%></h1>
+            </div>
+            <% end %>
+      </li>
+      </ol>
+       <input type="image" src="cancel.png" alt="Submit" class="Modal-close" onclick=func1(<%= order.id%>)>
+       </div>
+    </div>
+   </div>
+<% end %>
+
+   <div class="Report-container">
+  <div class="Title-box">
+    <h1 class="Orders-title">Orders Table</h1>
+    <%= image_submit_tag("filter1.png",class: "Filter-image",onclick: "func2()") %>
+    <h2>Filter</h2>
+  </div>
+  <div class="Date">
+    <h1>From-Date :</h1>
+    <h2><%= @from %></h2>
+  </div>
+   <div class="Date" style="float:right;margin-right:7%;">
+    <h1>To-Date :</h1>
+    <h2><%= @to %></h2>
+  </div>
+    <table class="Report-table">
+      <tr>
+        <th>Order-Id</th>
+        <th>User-Id</th>
+        <th>Ordered on</th>
+        <th style="padding-right:5vw;">Delivery Status</th>
+      </tr>
+    <% Order.display(@from,@to,@filter).each do |order|%>
+      <tr>
+        <td><%= order.id%></td>
+        <td><%= order.user_id%></td>
+        <td><%= order.ordered_at.strftime("%d-%b-%Y")%></td>
+        <td><%= order.delivered_at ? "Delivered" : "Pending"%>
+          <input type="image" src="details.svg" alt="Submit" class="Details1" onclick=func(<%= order.id%>)></td>
+      </tr>
+<% end %>
+    </table>
+   </div>
+   <% end %>
+</body>
+
+</html>
+<script>
+function func(id){
+    var mod = document.getElementById(id);
+    mod.style.display="flex";
+  }
+  function func1(id) {
+    var mod = document.getElementById(id);
+    mod.style.display="none";
+  }
+  function func2(){
+    var mod = document.getElementById("filter");
+    mod.style.display="flex";
+  }
+  function func3(){
+    var mod = document.getElementById("filter");
+    mod.style.display="none";
+  }
+</script>

@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <% if @current_user %>
+    <% if @current_user or @billingclerk %>
       <p class="User-header">
         <% if @current_user.first_name == "Walk-incustomer" %>
           Welcome <%= @current_billingclerk.first_name %>!
@@ -22,6 +22,27 @@
       <div class="header">
         Maharaja Restaurant
       </div>
+    <% end %>
+    <% if true %>
+      <header>
+        <p class="Text">Cafeteria</p>
+        <input class="Sign-out" type="button" value="Signout">
+      </header>
+      <input type="checkbox" id="check">
+      <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+      </label>
+      <nav class="Class">
+        <ul class="List">
+          <li><a href="/users"> Search Users</a></li>
+          <li><a href="/users/checkers"> Manage Checkers</a></li>
+          <li><a href="/menuitems"> Manage Menu</a></li>
+          <li><a href="/menus"> View Menu</a></li>
+          <li class="Orders-design"><a href="/orders"> Sales Report</a></li>
+          <li><a href="/orders/users"> Check Order</a></li>
+        </ul>
+      </nav>
     <% end %>
     <% if flash[:notice] %>
       <p class="Flash-notice">

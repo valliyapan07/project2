@@ -1,0 +1,260 @@
+.Report{
+  background-color: rgb(117, 115, 115);
+  display: flex;
+  margin-top: 2vw;
+  width:70%;
+  height: 6vw;
+  border-radius: 4px;
+  margin-left: 5%;
+  align-items: center;
+  justify-content: center;
+  margin-left: 25vw;
+  color: white;
+}
+.Report h1{
+  margin-right: 2%;
+  font-size: 1.6vw;
+  float: left;
+  margin-left: 1vw;
+}
+.Report input{
+  float: left;
+  width: 30%;
+  height: 3vw;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 1.4vw;
+  padding: .4vw 1vw;
+  margin-right: 2vw;
+
+}
+.View{
+  width:16%;
+  color: white;
+  padding: 1vw 2vw;
+  text-decoration-line: none;
+  border-radius: 10px;
+  margin-left: 32%;
+  text-align: center;
+  margin-top: 1.5vw;
+  font-size: 1.6vw;
+  border:1px solid transparent;
+  background-color: green;
+}
+
+.Report-container{
+  background-color: rgb(255, 223, 223);
+  margin-top:3vw;
+  width: 75%;
+  margin-left:22.5vw;
+  margin-bottom: 3vw;
+  padding-bottom: 3vw;
+  padding-top: 2vw;
+}
+.Report-table{
+  margin:auto;
+  width:85%;
+  margin-top: 2.5vw;
+  background-color: rgb(252, 181, 181);
+
+}
+.Report-table th{
+  background-color:  rgb(252, 22, 22);
+  padding:1vw;
+  border:1px solid rgb(32, 32, 32);
+  font-size: 1.8vw;
+  color: white;
+}
+.Report-table td{
+  text-align: center;
+  padding:1vw;
+  font-size: 1.6vw;
+  border:1px solid rgb(32, 32, 32);
+}
+.Orders-title,.Orders-title1{
+  font-size: 2.5vw;
+  font-weight: 600;
+  padding: 1vw;
+  margin-left: 23vw;
+  text-transform: uppercase;
+  background-color: red;
+  border-radius: 7px;
+  color: white;
+  width: 40%;
+  text-align: center;
+  align-items: center;
+}
+.Orders-title1{
+  width: 60%;
+  margin: auto;
+}
+.Title-box{
+ display: flex;
+}
+.Filter-image{
+  width: 3%;
+  height: 50%;
+  margin-left: 5vw;
+  margin-top: 1.5%;
+}
+.Delivered{
+  color: green;
+}
+.Pending{
+  color: red;
+}
+.Date{
+  display: flex;
+  margin-top: 2vw;
+  float: left;
+  margin-bottom: 2vw;
+}
+.Date h1{
+  margin-left: 6vw;
+  font-size: 1.7vw;
+  font-weight: 600;
+}
+.Date h2{
+  font-size: 1.7vw;
+  margin-left: 1vw;
+}
+.Details,.Details1{
+  height: 10%;
+  width: 8%;
+  float: right;
+  margin-right: 3vw;
+}
+.Modal-bg,.Filter-Modal{
+  position: fixed;
+  width: 100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  top:0;
+  left:0;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  transition:visibility 0s opacity 0.5s;
+}
+
+.Filter label{
+ margin-left: 5vw;
+}
+.Box1{
+  display: flex;
+}
+.Modal,.Filter{
+  border-radius: 3px;
+  position: relative;
+  background-color: white;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+}
+.Filter{
+  height: 40%;
+  width:30%;
+  font-size: 1.5vw;
+}
+.Apply{
+  border:1px solid transparent;
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+  padding: 0.5vw;
+  font-size: 1.4vw;
+  margin-left: 11vw;
+  width: 30%;
+}
+.Filter input[type="radio"]{
+  margin-right: 2vw;
+}
+.OrderList ul li{
+  display: flex;
+}
+.Title-box h2{
+  font-size: 1.7vw;
+  margin-top: 1.5vw;
+  margin-left: 1vw;
+  font-weight: 600;
+}
+.Display-name,.Display-name1{
+  width: 60%;
+}
+.Display-name1{
+  font-weight: 600;
+}
+.Display-total{
+  text-align: right;
+  margin-right: 3%;
+  width: 50%;
+}
+.Display-total1{
+  text-align: right;
+  margin-right: 3%;
+  width: 20%;
+}
+.Modal-close{
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+  width: 2vw;
+}
+.Modal ol{
+  margin-top:20px;
+  font-size: 1.4vw;
+}
+.Modal h1{
+  margin-left:2%;
+  margin-bottom: 3%;
+  font-weight:bolder ;
+}
+.Modal p{
+  margin-bottom:1%;
+  margin-left:15%;
+}
+.Box1 h2{
+  margin-bottom: 2%;
+  margin-left: 2%;
+  font-weight: 600;
+}
+
+.Border{
+  border: 2px solid red;
+  width: 96%;
+  margin-left: 2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.CheckBox{
+  margin-top: 0;
+  transform: scale(1.7);
+  margin-left: 1vw;
+  margin-right: 0.7vw;
+}
+@media screen and (max-width:600px){
+  .Report{
+   margin-top:13vw;
+   height: 10vw;
+   margin-left: 11vw;
+   width: 80%;
+  }
+  .Report h1{
+    font-size: 3.3vw;
+  }
+  .Report input{
+    height: 5vw;
+    padding:1vw 1vw;
+    font-size: 2vw;
+    width: 100%;
+  }
+  .View{
+    margin-left: 42%;
+    height:8vw ;
+    padding: .8vw 2vw;
+    font-size: 2.7vw;
+  }
+}

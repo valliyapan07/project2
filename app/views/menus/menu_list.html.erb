@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/fc0bcca8a3.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="Act-Menu">
+    <h1 class=ActiveMenu-title>Active Menu :</h1>
+    <p class="ActiveMenu-name"><%= Menu.activemenu%></p>
+    </div>
+<section class="Container">
+
+    <div class="Menu">
+
+      <% Menu.display.each do |menu|%>
+       <p class="Menu-name"> <a name=<%= menu.name.delete " " %>><%= menu.name %></a></p>
+       <% Menuitem.display_category(menu).each do |category|%>
+       <h1 class="Category-name"><%= category.category_name%></h1>
+       <table class="MenuTable">
+         <tr>
+           <th>Menu Item</th>
+           <th>Price</th>
+         </tr>
+         <% Menuitem.find1(menu.id,category.category_name).each do |menuitem|%>
+             <tr>
+                <td><%= menuitem.name %></td>
+                <td style="display:flex;margin-left:2vw;"><%= menuitem.price %>
+                <%= form_with(url: "/menuitems/#{menuitem.id}", method: "delete") do %>
+                  <%= image_submit_tag('trash-can-outline.svg',class: "Delete") %>
+                <% end %></td>
+             </tr>
+         <% end %>
+         </table>
+         <% end %>
+         <hr class="Line">
+        <% end %>
+    </div>
+    <div class="Refer">
+  <h1>Refer to go </h1><hr>
+  <ul class="Unordered-list">
+    <% Menu.display.each do |menu|%>
+    <li> <a href=<%= "#"+(menu.name.delete " ") %>> <%= menu.name %> </a ></li>
+    <% end %>
+  </ul>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+.AddDel{
+  display: block;
+  background-color: rgb(255, 223, 223);
+  margin-left:25vw;
+  margin-top: 5vw;
+  width: 70%;
+  border-radius: 5px;
+}
+.AddDel h1{
+  font-size: 2vw;
+}
+.New-Menu{
+  display: flex;
+  height: 20%;
+  margin-bottom: 1vw;
+}
+.Menu-title{
+  font-size: 2vw;
+  font-weight: 600;
+
+  margin-left:27vw;
+  padding-top: 2vw;
+
+}
+.AddMenu{
+  margin-left:18vw;
+  margin-top: 3.5vw;
+}
+.Horizontal{
+  margin-top: 2vw;
+}
+.MenuName{
+  border:1px solid transparent;
+  font-size: 1.2vw;
+  margin-left:10px;
+  padding:10px;
+  margin-top:3vw;
+  border-radius: 5px;
+  width: 30%;
+}
+.Add{
+  color: white;
+  background-color: rgb(18, 104, 18);
+  width:15%;
+  border-radius: 10px;
+  height: 3vw;
+  margin-left: 30vw;
+  margin-top: 1.6vw;
+  font-size: 1.5vw;
+  padding:.4vw 2vw;
+  border:1px solid transparent;
+}
+.Menuitem-title{
+  font-size: 2vw;
+  font-weight: 600;
+  margin-left:25vw;
+  padding-top: 1vw;
+
+}
+.Select-Item{
+  width:90%;
+  margin-top: 1vw;
+  margin-left: 4vw;
+  display: flex;
+}
+.Select-Item1{
+  margin-top: 1.7vw;
+  width: 30%;
+  margin-left: 1vw;
+}
+.Select-Item2{
+  width: 70%;
+  margin-left:7vw;
+}
+.Select-Item1 select{
+  margin-top: 1.7vw;
+
+  width: 100%;
+  font-size: 1.3vw;
+}
+.Select-Item2 h1{
+  margin-top:1.8vw;
+  margin-bottom: .8vw;
+  font-size: 1.8vw;
+}
+.Select-Item2 div{
+  display: flex;
+}
+.Select-Item2 div input{
+  width: 50%;
+  border-radius: 5px;
+  font-size: 1.3vw;
+  margin-top: 1.4vw;
+  border: 1px solid transparent;
+}
+.Description1{
+  font-size: 1.5vw;
+  margin-left:5vw;
+  margin-top: 3.5vw;
+  width: 30%;
+  line-height: 3vw;
+}
+.Price{
+  margin-left: 11.5vw;
+  width: 100%;
+}
+.Name{
+  margin-left: 1vw;
+  width: 100%;
+}
+
+.Price1{
+  margin-left: 7vw;
+  width: 70%;
+}
+.Category{
+  margin-left: 2.6vw;
+}
+.Select-Item3 div{
+  display: flex;
+}
+.TextArea{
+  margin-left: 2vw;
+  width: 55%;
+  height: 10vw;
+  font-size: 1.5vw;
+  margin-top:2vw;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+.Image-addr{
+
+  margin-top: 3vw;
+  margin-left: 1.7vw;
+  width: 40%;
+  font-size: 1.3vw;
+}
+.Select-Menu{
+  display: flex;
+  margin-top: 2vw;
+  margin-left: 18vw;
+}
+.Select-Menu select{
+  width: 40%;
+  margin-left: 1vw;
+  height: 3vw;
+  font-size: 1.3vw;
+}
+.Activemenu-title{
+   margin-left:25vw;
+   font-size:4vw ;
+   font-weight: 600;
+}
+.Active{
+  margin-top:.4vw;
+}
+.Select,.Select1,.Select2{
+  background-color: rgb(18, 104, 18);
+  color: white;
+  border-radius: 10px;
+  margin-top: 1.6vw;
+  font-size:1.5vw ;
+  border: 1px solid transparent;
+  padding: .5vw 2vw;
+
+}
+.Select{
+  margin-left: 30vw;
+}
+.Select1{
+  margin-left: 3vw;
+  margin-bottom: 2vw;
+  margin-top: 2vw;
+}
+.Select2{
+  margin-top: 0;
+  margin-left: 30vw;
+  margin-bottom: 2vw;
+}
+.Edit{
+  margin-left: 27vw;
+  font-weight: 600;
+  color: rgb(37, 32, 32);
+}
+.Select-menu{
+  width: 55%;
+  height: 10%;
+  margin-top: 1.5vw;
+  margin-left: 1.5vw;
+  font-size: 1.3vw;
+
+}
+.Edit-menuitem1{
+  margin-top:1.5vw
+}
+.Edit-menuitem1,.Edit-menuitem2{
+  margin-left: 1vw;
+}
+
+@media only screen and (max-width:600px){
+  .AddDel{
+    margin:8vw auto;
+    width: 85%;
+  }
+  .AddDel h1{
+    font-size: 3.8vw;
+  }
+  .AddDel .Menu-title{
+    margin-left: 25vw;
+    font-size: 4vw;
+  }
+  .New-Menu{
+    margin-top: 2vw;
+    margin-left: 4vw;
+    margin-bottom: 2vw;
+
+  }
+  .New-Menu .MenuName{
+    padding:1vw;
+    font-size: 3vw;
+    margin-top: 2vw;
+    width: 40%;
+  }
+  .Add{
+    margin-left: 33vw;
+    padding-top: 1vw;
+    padding-bottom: 4.5vw;
+    font-size: 3vw;
+    width: 20%;
+  }
+  .AddDel .Menuitem-title{
+    font-size: 4vw;
+    margin-left: 22vw;
+  }
+  .Select-Item{
+    margin-top: 3vw;
+    display: grid;
+  }
+  .Select-Item1{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .Select-Item1 h1{
+    margin-top: 1.6vw;
+  }
+  .Select-Item1 select{
+    width: 50%;
+    margin-top: 0;
+    margin-left: 2vw;
+    font-size: 3vw;
+  }
+  .Select-Item2{
+    width: 100%;
+    margin-left: 0;
+    margin-top: 3vw;
+  }
+  .Select-Item2 div{
+    margin-top: 3vw;
+  }
+  .Select-Item .Select-Item2 input{
+    font-size: 3vw;
+    padding:1vw;
+  }
+  .Name{
+     margin-left: 4vw;
+  }
+  .Price{
+     margin-left: 27vw;
+  }
+  .Category{
+     margin-left: 7.5vw;
+  }
+  .AddDel .Select-Item3{
+    margin-top: 3vw;
+    height: 30%;
+  }
+  .Description{
+    line-height: 5vw;
+  }
+  .TextArea{
+    height: 100%;
+font-size: 3vw;
+  }
+  .Image-addr{
+    height: 10vw;
+    padding:.5vw;
+    font-size: 3vw;
+    margin-bottom: 2vw;
+    width: 60%;
+  }
+  .AddDel .Select-Menu{
+    margin-top: 5vw;
+    margin-bottom: 2vw;
+  }
+  .Active{
+    margin-top: 2vw;
+  }
+  .Select,.Select1,.Select2{
+    padding:1vw 3.4vw;
+    font-size: 3vw;
+  }
+  .Select{
+    margin-left: 35vw;
+  }
+  .Select-Menu select{
+    font-size: 3vw;
+    width: 50%;
+  }
+}

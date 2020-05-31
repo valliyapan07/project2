@@ -1,0 +1,152 @@
+*{
+  box-sizing: border-box;
+  font-family:'Poppins',"sans-serif";
+  text-decoration: none;
+  scroll-behavior: smooth;
+
+  }
+header{
+  background-color: rgb(250, 37, 37);
+  height: 6vw;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.Text{
+
+  float: left;
+  font-size: 3vw;
+  color: white;
+  font-weight: 600;
+  margin-left: 40.5%;
+  margin-top: 1.2%;
+}
+.Sign-out{
+  float:right;
+  margin-right: 3vw;
+  margin-top: 1.5%;
+  background-color: #cc0e07dc;
+  border-radius: 5px;
+  border: 1px solid transparent;
+ color: whitesmoke;
+ font-size:1.3vw;
+ font-weight:600;
+ padding:.5vw 1vw;
+}
+nav{
+  background-color: #1e1e1e;
+  width: 20%;
+  display: flex;
+  float: left;
+  height: inherit;
+
+}
+
+.List li{
+  background-color:#1e1e1e;
+  font-size: 1.8vw;
+  text-align: center;
+  padding: 1%;
+  line-height: 5vw;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.List li a{
+  color: white;
+  border-left: .3vw solid transparent ;
+  display: block;
+  transition: .2s;
+}
+label #btn,
+label #cancel{
+  position: absolute;
+  cursor: pointer;
+  background-color: #cc0e07dc;
+  border-radius: 3px;
+  top:12vw;
+  visibility: hidden;
+}
+label #btn{
+  font-size: 3.5vw;
+  color: white;
+  padding:.4vw .8vw;
+  left:2%;
+  top:5vw;
+  transition: all .5s;
+}
+label #cancel{
+  z-index: 1111;
+  left:-15%;
+
+  font-size: 10vw;
+  padding:.4vw 1vw;
+  color: white;
+  transition: all .5s ease;
+}
+.List li a:hover{
+  padding-left: 2vw;
+  color: #fc5b4f;
+  background:#1e1e1e;
+  border-left-color:#fc5b4f;
+}
+#check{
+  display: none;
+}
+#check:checked ~ nav{
+  left: 0;
+}
+#check:checked ~label #btn{
+   left:20%;
+   opacity: 0;
+   pointer-events: none;
+}
+#check:checked ~label #cancel{
+    left:67%;
+    margin-top: 8%;
+}
+
+@media screen and (max-width:600px){
+  header{
+    height: 15vw;
+  }
+  .Text{
+    font-size: 8vw;
+    margin-left: 25%;
+    margin-top:3vw;
+  }
+  .Sign-out{
+    font-size:3.5vw;
+    margin-top: 4.9vw;
+    padding:.7vw 1.3vw;
+  }
+  label #btn,
+label #cancel{
+  visibility: visible;
+}
+label #btn{
+  padding:1vw 2vw;
+}
+label #cancel{
+  font-size: 5.5vw;
+
+}
+nav{
+  position: absolute;
+  left:-65%;
+  transition: all .5s ease;
+  width: 65%;
+}
+.List li a{
+  border-left: 1vw solid transparent ;
+}
+.List{
+  margin-top: 0;
+}
+#check:checked ~ nav{
+  left: 0;
+}
+.List li{
+  font-size: 5.5vw;
+  line-height: 16vw;
+}
+}

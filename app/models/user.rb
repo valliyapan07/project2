@@ -21,4 +21,12 @@ class User < ActiveRecord::Base
       self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end
   end
+
+  def self.show
+    User.all.where(role: "Customer")
+  end
+
+  def self.show_checker
+    User.all.where(role: "Bill Checker")
+  end
 end

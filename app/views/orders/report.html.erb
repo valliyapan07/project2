@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/fc0bcca8a3.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+
+<body>
+   <header>
+    <p class="Text">Cafeteria</p>
+    <input class="Sign-out" type="button" value="Signout">
+  </header>
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fas fa-bars" id="btn"></i>
+    <i class="fas fa-times" id="cancel"></i>
+  </label>
+  <nav class="Class">
+    <ul class="List">
+      <li> <%= link_to "Search Users", users_path %></li>
+      <li><a href=""> Manage Checkers</a></li>
+      <li><a href="menus"> Manage Menu</a></li>
+      <li><a href="menus"> View Menu</a></li>
+      <li><a href="orders" style="color: #f53d30;border-left:  .3vw solid #f53d30;"> Sales Report</a></li>
+      <li><a href="owner-order.html"> Check Order</a></li>
+    </ul>
+  </nav>
+  <div class="Report">
+    <h1>Start Date:</h1>
+    <input class="Start" type="Date" placeholder="dd/mm/yyyy">
+    <h1>End Date:</h1>
+    <input class="End" type="Date" placeholder="dd/mm/yyyy">
+  </div>
+
+  <a class="View" href="orders/report">View Report</a>
+  <h1 class="Rep">Sales Report</h1>
+  <div class="ShowReport">
+    <ol style="list-style: decimal;">
+      <li class="OrderList">
+        <div class="Box">
+          <h1>Name : </h1>
+          <h2>Shriram Bharadwaj</h2>
+        </div>
+        <h1>Items</h1>
+        <ul>
+          <li>
+            <p>1 x Mushroom Biriyani</p>
+          </li>
+          <li>
+            <p>1 x Gobi Fried Rice</p>
+          </li>
+        </ul>
+        <h1>Ordered on</h1>
+        <p>06-June 2019 at 1.53 Pm</p>
+        <h1>Total Amount</h1>
+        <p>Rs.100</p>
+        <hr class="Line">
+        <h1 class="Delivered">Delivered</h1>
+        </h1>
+      </li>
+
+      <li class="OrderList">
+        <div class="Box">
+          <h1>Name : </h1>
+          <h2>Shriram Bharadwaj</h2>
+        </div>
+        <h1>Items</h1>
+        <ul>
+          <li>
+            <p>1 x Mushroom Biriyani</p>
+          </li>
+          <li>
+            <p>1 x Gobi Fried Rice</p>
+          </li>
+        </ul>
+        <h1>Ordered on</h1>
+        <p>06-June 2019 at 1.53 Pm</p>
+        <h1>Total Amount</h1>
+        <p>Rs.100</p>
+        <hr class="Line">
+        <h1 class="Delivered">Delivered</h1>
+        </h1>
+      </li>
+    </ol>
+  </div>
+
+
+</body>
+
+</html>

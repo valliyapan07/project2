@@ -17,9 +17,14 @@
     <div class="Order-details">
       <h1 class="OrderDetails-head">Your orders</h1>
       <% @current_user.orders.order(id: :desc).each do |t| %>
+        <input type="Button" value="Details" class="Details-button">
         <p class="OrderDetails-para">Order id: <%= t.id %></p>
         <p class="OrderDetails-para">Ordered at: <%= t.ist(t.ordered_at) %></p>
         <p class="OrderDetails-para">Delivered at: <%= t.delivered_at %></p>
+        <div class="Status">
+          <p>Status:</p>
+          <p class="Status-text" style='color: <%= t.delivered_at ? "green" : "red" %>' ><%= t.delivered_at ? "Delivered" : "Pending" %></p>
+        </div>
         <hr>
       <% end %>
       <% if @current_user.orders.count == 0 %>

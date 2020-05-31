@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="AddDel">
+  <h1 class="Menu-title">Add New Menu</h1>
+    <%= form_with(url: "/menus", method: "post" ,class: "Add-NewMenu") do %>
+      <div class="New-Menu">
+        <h1 class="AddMenu">Menu name :</h1>
+        <%= text_field_tag("name", nil, placeholder: "Type here", class: "MenuName") %>
+      </div>
+
+
+    <% end %>
+    <hr class="Horizontal">
+    <h1 class="Menuitem-title">Add New Menuitem</h1>
+    <%= form_with(url: "/menuitems", method: "post") do %>
+    <div class="Select-Item">
+
+      <div class="Select-Item1">
+        <h1>Select Menu :</h1>
+
+            <select name="name">
+              <% Menu.display.each do |menu|%>
+                <option class="Option" value="<%= menu.name %>"><%= menu.name %></option>
+              <% end %>
+            </select>
+      </div>
+      <div class="Select-Item2">
+        <div>
+          <h1>Menu-Item name:</h1>
+          <%= text_field_tag("menuitem_name", nil, placeholder: "Type here", class: "Name") %>
+        </div>
+        <div>
+          <h1>Price:</h1>
+          <%= text_field_tag("price", nil, placeholder: "Type here",class: "Price") %>
+        </div>
+        <div>
+          <h1>Category name:</h1>
+          <%= text_field_tag("category_name", nil, placeholder: "Type here",class: "Category") %>
+        </div>
+      </div>
+    </div>
+
+    <div class="Select-Item3">
+      <div>
+        <h1 class="Description1"> Add Description:</h1>
+        <textarea class="TextArea" cols="30" rows="10" placeholder="Describe the Menu-Item" name="description"></textarea>
+      </div>
+      <div>
+        <h1 class="Description1">Image Address: </h1>
+        <%= text_field_tag("img_addr", nil,class: "Image-addr" ,placeholder: "Type here") %>
+      </div>
+    </div>
+    <%= submit_tag("Add", class: "Add",onclick: "myFunction1()") %>
+        <% end %>
+        <hr class="Horizontal">
+        <h1 class="Activemenu-title">Select Active Menu</h1>
+    <%= form_with(url: "/menus/#{3}", method: "put") do %>
+    <div class="Select-Menu">
+      <h1 class="Active">Active Menu :</h1>
+
+        <select name="menu_name" id="select">
+          <% Menu.display.each do |menu|%>
+            <option value="<%= menu.name %>"><%= menu.name %></option>
+          <% end %>
+        </select>
+    </div>
+
+  <%= submit_tag("Select", class: "Select",onclick: "myFunction2()") %>
+  <% end %>
+  <hr class="Horizontal">
+  <h1 class="Edit">Edit Menu-Item</h1>
+
+   <div class="Select-Item">
+
+      <div class="Select-Item1" style="margin-left:5vw;">
+        <h1 style="margin-left:1vw;">Select Menu</h1>
+        <%= form_with(url: "/menuitems/#{4}/edit", method: "get") do %>
+            <select name="menu_name" id="select1">
+              <% Menu.display.each do |menu|%>
+                <option value="<%= menu.name %>"><%= menu.name %></option>
+              <% end %>
+            </select>
+            <%= submit_tag("Select", class: "Select1",onclick: "myFunction4()") %>
+          <% end %>
+      </div>
+       <div class="Select-Item2"  style="margin-left:4vw;">
+       <%= form_with(url: "/menuitems/#{@menus.id}", method: "put") do %>
+        <div class="Edit-menuitem1">
+          <h1>Menu Item :</h1>
+
+          <select class="Select-menu" name="menu_name" id="select1">
+
+              <% Menuitem.display_list(@menus).each do |menuitem|%>
+                <option value="<%= menuitem.name+"/"+menuitem.category_name %>"><%= menuitem.name %> (<%= menuitem.category_name%>)</option>
+              <% end %>
+            </select>
+        </div>
+        <div class="Edit-menuitem2">
+          <h1>Price:</h1>
+          <%= text_field_tag("price", nil, placeholder: "Type here",class: "Price1") %>
+        </div>
+
+      </div>
+    </div>
+    <%= submit_tag("Change", class: "Select2",onclick: "myFunction3()") %>
+        <% end %>
+  </div>
+
+</body>
+  <script>
+    function myFunction()
+    {
+      alert("Menu added successfully");
+    }
+    function myFunction1()
+    {
+      alert("MenuItem added successfully")
+    }
+    function myFunction2()
+    {
+      alert(document.getElementById("select").value+" is selected as Active Menu")
+    }
+    function myFunction3()
+    {
+      alert("MenuItem edited successfully")
+    }
+      function myFunction4()
+    {
+     alert(document.getElementById("select1").value+" is selected ")
+    }
+</script>
+
+</html>

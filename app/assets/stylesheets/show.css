@@ -43,7 +43,7 @@ hr{
   font-size: 1.4vw;
 }
 .DescContent-head{
-  font-size: 1.6vw;
+  font-size: 1.4vw;
   margin-bottom: 2.4vw;
 }
 .Desc-content{
@@ -75,7 +75,6 @@ hr{
 }
 
 .image{
-  margin-top: 2.6vw;
   width: 20vw;
   height: 20vw;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

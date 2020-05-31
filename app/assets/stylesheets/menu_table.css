@@ -1,0 +1,133 @@
+.Menu{
+  background-color: rgb(255, 223, 223);
+  margin-left:5vw;
+  margin-top:2vw;
+  width: 67%;
+  padding:.7vw 2vw;
+}
+.MenuTable{
+  margin:auto;
+  width: 85%;
+  margin-top: 1.5vw;
+  background-color: rgb(252, 181, 181);
+}
+.Menu p{
+  font-size:1.7vw;
+  margin-bottom:1vw;
+  font-weight: bold;
+  margin-top: 2vw;
+}
+.Title{
+  margin-left:37%;
+  font-size: 2vw;
+  margin-top:2vw;
+  font-weight:600;
+}
+.Menu th{
+  border:1px solid rgb(189, 186, 186);
+  background-color:  rgb(250, 37, 37);
+  padding:1vw;
+  padding-right:20px;
+  color:whitesmoke;
+  font-size: 1.5vw;
+}
+.Menu td{
+  font-size: 1.5vw;
+  margin-top:.5vw;
+  line-height: 2.3vw;
+
+   padding-right:3.4vw;
+   padding-left: 4vw;
+}
+.Delete{
+  margin-left: 2vw;
+  height: 2vw;
+  width: 5vw;
+  margin-bottom: .2vw;
+}
+.Category-name{
+   margin-left: 3vw;
+   font-size: 1.5vw;
+   font-weight: 600;
+   margin-top: 1.5vw;
+}
+.Refer{
+  margin-left: 63vw;
+  margin-top: 5vw;
+  position: fixed;
+}
+.Refer h1{
+  font-size: 1.7vw;
+  margin-left: 1.2vw;
+}
+.Container{
+  display: flex;
+}
+.Unordered-list{
+  list-style: disc;
+}
+.Unordered-list li{
+  margin-top: 1.2vw;
+  font-size: 1.5vw;
+}
+.Line{
+  margin-top: 2vw;
+}
+.Act-Menu{
+  display: flex;
+  margin-top: 2vw;
+  font-size: 2vw;
+  font-weight: 600;
+}
+.ActiveMenu-title{
+  margin-left:5vw ;
+
+}
+.ActiveMenu-name{
+  margin-left:1vw
+}
+@media screen and (max-width:600px)
+{
+  .Menu{
+    width:67%;
+    margin-left: 4vw;
+  }
+  .Refer{
+     margin-left: 78vw;
+
+  }
+  hr{
+    margin-top:1vw;
+  }
+  .MenuTable th{
+    font-size: 3.3vw;
+  }
+  .Menu td{
+     font-size: 3vw;
+     padding:1.3vw;
+     text-align: center;
+  }
+  .Refer h1{
+    font-size: 3.3vw;
+  }
+  .Refer li{
+    font-size: 3vw;
+    font-weight: 600;
+    padding-top: 1vw;
+  }
+  .Category-name{
+    font-size: 2.8vw;
+    padding-top:1vw;
+  }
+  .Menu .Menu-name{
+    font-size: 3.2vw;
+  }
+  .Delete{
+
+    height: 3vw;
+    width: 5vw;
+  }
+  .Act-Menu{
+   font-size: 3vw;
+  }
+}

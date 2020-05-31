@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <%# <script src="https://kit.fontawesome.com/fc0bcca8a3.js" crossorigin="anonymous"></script> %>
+  <style>
+  .Srch{
+    margin-top:.5vw;
+    margin-left:3vw;
+    background-color:transparent;
+    padding:0;
+  }
+  .View-details{
+    background-color: rgb(18, 104, 18);
+    margin-left:3vw;
+  }
+  .Search-container1{
+    margin-left:3vw;
+    width:100%;
+    margin-top:1.5vw;
+  }
+  .User-title{
+    margin-left:12vw;
+  }
+  .User-png{
+    margin-left:15.5vw;
+  }
+  .Search-container1 .Not-found{
+    margin-left:4vw;
+  }
+  .Search-details2{
+    margin-top:2vw;
+  }
+  .Search-details{
+    margin-top:2.5vw;
+  }
+  </style>
+</head>
+<body>
+
+
+<div class="Checkers">
+<div class="UsersNew1">
+ <p class="NewChecker-title">Create new Checker</p><hr>
+  <%= form_with url: users_path do |form|%>
+    <div class="Form-section1">
+      <p class="Form-InputLabel">First Name: </p>
+      <%= form.text_field :first_name , class: "Form-input1",autofocus: "autofocus"%>
+    </div>
+    <div class="Form-section1">
+      <p class="Form-InputLabel">Last Name: </p>
+      <%= form.text_field :last_name , class: "Form-input1"%>
+    </div>
+    <div class="Form-section1">
+      <p class="Form-InputLabel">Email Id: </p>
+      <%= form.email_field :email, class: "Form-input1"%>
+    </div>
+    <div class="Form-section1">
+      <p class="Form-InputLabel">Password: </p>
+      <%= form.password_field :password, class: "Form-input1"%>
+    </div>
+    <div class="Form-section1">
+      <%= form.submit "Sign-Up" ,class: "Form-submit1"%>
+    </div>
+  <% end %>
+</div>
+<div class="Vline"></div>
+<div class="Delete-checker">
+<%= form_with(url: "/users/details", method: "patch") do %>
+  <div class="Srch">
+    <%= image_submit_tag('search.svg',class: "Search-img") %>
+    <input class="Search2" name=user_name type="text" autocomplete="off" placeholder="Type here to Search" id="Search" onkeyup="searchFunc()">
+    <%= submit_tag("View Details", class: "View-details",onclick: "Func1()") %>
+  </div>
+  <% end%>
+  <ul class="Unordered-list1" id="List">
+  <% User.show_checker.each do |user|%>
+    <li class="Checker-list" onclick="MyFunc(this.id)" id="<%=user.first_name %>"> <%=user.first_name+" "+user.last_name%></li>
+  <% end %>
+  </ul>
+    <div class="Search-container1" id="Search-container">
+  <%= image_submit_tag("user.png",class: "User-png") %>
+    <h1 class="User-title">User Details</h1><hr>
+    <% if @users == nil%>
+    <h1 class="Not-found">User not Found!!</h1>
+    <% else %>
+    <div class="Search-details">
+      <h1>User-Id</h1>
+      <h1 style="margin-left:4.5vw;">:</h1>
+      <p>01</p>
+    </div>
+    <div class="Search-details">
+      <h1>First Name  </h1>
+      <h1 style="margin-left:1vw;">:</h1>
+      <p><%= @users.first_name%></p>
+    </div>
+    <div class="Search-details">
+      <h1>Last Name  </h1>
+      <h1 style="margin-left:1.4vw;">:</h1>
+      <p><%= @users.last_name%></p>
+    </div>
+    <div class="Search-details">
+      <h1>Email-Id  </h1>
+      <h1 style="margin-left:3.5vw;">:</h1>
+      <p><%= @users.email_id%></p>
+    </div>
+    <div class="Search-details" >
+      <h1>Role  </h1>
+      <h1 style="margin-left:7.5vw;">:</h1>
+      <p><%= @users.role%></p>
+    </div>
+    <div class="Search-details1">
+       <h1>Account created on</h1>
+    </div>
+    <div class="Search-details2">
+       <h1>Date & Time</h1>
+       <h1 style="margin-left:0vw;">:</h1>
+       <p><%= @users.created_at.to_s(:long)%></p>
+    </div>
+     <%= form_with(url: "/users/#{@users.id}", method: "delete") do %>
+    <div class="Search-details3">
+      <%= submit_tag("Delete Checker", class: "Delete-clerk")%>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+
+</div>
+</body>
+
+
+
+</html>
+<script>
+  function searchFunc() {
+    let filter = document.getElementById('Search').value.toUpperCase();
+    let list = document.getElementById('List');
+    let li = list.getElementsByTagName('li');
+    for(var i=0;i<li.length;i++)
+    {
+
+        if(li[i])
+        {
+          if(li[i].textContent.toUpperCase().indexOf(filter) > -1 && filter.length!=0)
+        {
+          li[i].style.display="block";
+        }
+        else{
+          li[i].style.display="none";
+        }
+        }
+      }
+    }
+    function MyFunc(id) {
+    var name = document.getElementById(id).textContent;
+    document.getElementById("Search").value = name;
+     let list = document.getElementById('List');
+     list.style.display="none";
+
+    }
+  </script>
