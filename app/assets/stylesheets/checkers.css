@@ -1,72 +1,80 @@
-.UsersNew1{
- margin-left: 5vw;
- margin-top: 3vw;
- width: 40%;
+.UsersNew1 {
+  margin-left: 5vw;
+  margin-top: 3vw;
+  width: 40%;
 }
-.Checkers{
+.Checkers {
   display: flex;
   height: 100%;
 }
-.NewChecker-title{
+.Search2 {
+  padding: 1vw;
+  font-size: 1vw;
+  height: 1vw;
+  margin-top: 2vw;
+  width: 70%;
+  margin-left: 1vw;
+}
+.NewChecker-title {
   font-size: 2vw;
   font-weight: bolder;
   margin-left: 2vw;
   text-transform: uppercase;
 }
-.Form-section1{
+.Form-section1 {
   margin-top: 2vw;
   font-size: 1.5vw;
   margin-left: 3vw;
 }
-.Form-input1{
+.Form-input1 {
   margin-top: 1vw;
   width: 75%;
   height: 3vw;
   font-size: 1.5vw;
 }
-.Form-submit1{
+.Form-submit1 {
   background-color: green;
   color: white;
   border: 1px solid transparent;
-  padding:.6vw 1vw;
+  padding: 0.6vw 1vw;
   font-size: 1.5vw;
   border-radius: 10px;
   margin-top: 1vw;
 }
-.Vline{
-  border-left:3px solid rgb(235, 94, 94);
+.Vline {
+  border-left: 3px solid rgb(235, 94, 94);
   height: 44vw;
   margin-left: 1vw;
 }
-.Delete-checker{
+.Delete-checker {
   width: 45%;
 }
-.Unordered-list1,.Unordered-list2{
-  width: 53%;
+.Unordered-list1,
+.Unordered-list2 {
+  width: 50%;
   margin-left: 7vw;
   border-radius: 5px;
-  margin-top: .2vw;
+  margin-top: 0.2vw;
   background-color: transparent;
   border: 0.5px solid rgb(77, 75, 75);
   border-top: transparent;
 }
-.Checker-list{
+.Checker-list {
   display: none;
   list-style: none;
   font-size: 1.5vw;
   width: 100%;
-  padding:.5vw;
-  padding:1vw;
+  padding: 0.5vw;
+  padding: 1vw;
   border-bottom: 1.5px solid rgba(31, 27, 27, 0.562);
-
 }
-.Checker-list:hover{
-  background-color:rgb(59, 58, 58);
+.Checker-list:hover {
+  background-color: rgb(59, 58, 58);
   color: white;
 }
-.Delete-clerk{
+.Delete-clerk {
   margin-left: 12vw;
-  padding:1vw;
+  padding: 1vw;
   border-radius: 15px;
   border: 1px solid transparent;
   background-color: rgb(253, 17, 17);

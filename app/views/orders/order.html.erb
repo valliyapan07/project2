@@ -14,15 +14,13 @@
   </style>
 </head>
 
-<body>
+<body class="Order-OwnerPage">
 
-<%= form_with(url: "/orders/hold", method: "post") do %>
-  <div class="Report">
-    <h1>Start Date:</h1>
-    <input class="Start" type="Date" placeholder="dd/mm/yyyy" name="from_date">
-    <h1>End Date:</h1>
-    <input class="End" type="Date" placeholder="dd/mm/yyyy" name="to_date">
-  </div>
+<%= form_with(url: "/orders/hold", method: "post", class: "Report") do %>
+  <h1>Start Date:</h1>
+  <input class="Start" type="Date" placeholder="dd/mm/yyyy" name="from_date">
+  <h1>End Date:</h1>
+  <input class="End" type="Date" placeholder="dd/mm/yyyy" name="to_date">
   <%= submit_tag("View Report",class: "View") %>
 <% end %>
 <%= form_with(url: "/orders/select", method: "post") do %>
@@ -45,9 +43,7 @@
 </div>
  <% end %>
 <% if @from=="" || @to=="" ||Order.display(@from,@to,@filter)==[]%>
-<div class="Report-container">
-  <h1 class="Orders-title1">Orders-not Found </h1>
-  </div>
+  <h1 class="Orders-title1">Orders-not Found</h1>
 <% else %>
 <% Order.display(@from,@to,@filter).each do |order|%>
    <div class="Modal-bg" id="<%= order.id%>">
@@ -109,11 +105,9 @@
   </div>
   <div class="Date">
     <h1>From-Date :</h1>
-    <h2><%= @from %></h2>
-  </div>
-   <div class="Date" style="float:right;margin-right:7%;">
+    <h2 class="Date-from"><%= @from %></h2>
     <h1>To-Date :</h1>
-    <h2><%= @to %></h2>
+    <h2 class="Date-to"><%= @to %></h2>
   </div>
     <table class="Report-table">
       <tr>

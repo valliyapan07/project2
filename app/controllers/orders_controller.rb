@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
     @current_user.cartitems.destroy_all
     flash[:notice] = "Thanks for Buying " + @current_user.first_name + "!"
     redirect_to userhome_index_path
-    OrderMailer.order_confirmation(@current_user, @order).deliver
   end
 
   def index

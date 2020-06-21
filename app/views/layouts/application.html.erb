@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,7 +11,7 @@
   </head>
 
   <body>
-    <% if @current_user or @billingclerk %>
+    <% if !@owner && @current_user %>
       <p class="User-header">
         <% if @current_user.first_name == "Walk-incustomer" %>
           Welcome <%= @current_billingclerk.first_name %>!
@@ -23,11 +24,14 @@
         Maharaja Restaurant
       </div>
     <% end %>
-    <% if true %>
-      <header>
-        <p class="Text">Cafeteria</p>
-        <input class="Sign-out" type="button" value="Signout">
-      </header>
+    <% if @owner %>
+      <p class="User-header">
+        Welcome <%= @current_user.first_name %>!
+        <%= link_to "Sign out", destroy_session_path,class: "signout", method: "delete" %>
+      </p>
+      <div class="header">
+        Maharaja Restaurant
+      </div>
       <input type="checkbox" id="check">
       <label for="check">
         <i class="fas fa-bars" id="btn"></i>

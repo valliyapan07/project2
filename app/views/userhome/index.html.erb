@@ -17,10 +17,14 @@
     <div class="Order-details">
       <h1 class="OrderDetails-head">Your orders</h1>
       <% @current_user.orders.order(id: :desc).each do |t| %>
-        <input type="Button" value="Details" class="Details-button">
+        <input type="Button" value="Details" class="Details-button" onclick="func(<%= t.id%>)">
         <p class="OrderDetails-para">Order id: <%= t.id %></p>
         <p class="OrderDetails-para">Ordered at: <%= t.ist(t.ordered_at) %></p>
-        <p class="OrderDetails-para">Delivered at: <%= t.delivered_at %></p>
+        <p class="OrderDetails-para">Delivered at:
+            <% if(t.delivered_at) %>
+              <%= t.ist(t.delivered_at) %>
+            <% end %>
+        </p>
         <div class="Status">
           <p>Status:</p>
           <p class="Status-text" style='color: <%= t.delivered_at ? "green" : "red" %>' ><%= t.delivered_at ? "Delivered" : "Pending" %></p>
@@ -30,6 +34,56 @@
       <% if @current_user.orders.count == 0 %>
         <p class="OrderDetails-para">You will see your order details once you place an order!</p>
       <% end %>
-    <div>
-  <div>
+    </div>
+  </div>
+  <% @current_user.orders.order(id: :desc).each do |order| %>
+    <div class="Modal-bg" id="<%= order.id%>">
+      <div class="Modal">
+        <div class="Border">
+          <ol>
+            <li class="OrderList">
+              <div class="Box1">
+                <h1>Name : </h1>
+                <h1><%= order.show_name%></h1>
+              </div>
+              <h1>Items</h1>
+              <ul>
+                <% order.orderitems.each do |orderitem|%>
+                  <li>
+                    <p class="Display-name"><%= orderitem.menuitem_name%></p>
+                    <h2 class="Display-total"><%= orderitem.menuitem_quantity%> x <%= orderitem.menuitem_price%> = <%=orderitem.total%></h2>
+                  </li>
+                <% end %>
+              </ul>
+              <h1></h1>
+              <div style="display:flex;">
+                <h1 class="Display-name1">Total Amount:</h1>
+                <p class="Display-total1">Rs.<%= Order.total(order.id)%></p>
+              </div>
+              <h1>Ordered on</h1>
+              <p><%= order.ist(order.ordered_at)%></p>
+              <hr style="color:red;">
+              <div class="Box1">
+                <h1>Delivery status :</h1>
+                <h2 class=<%= order.delivered_at ? "Delivered" : "Pending"%>><%= order.delivered_at ? "Delivered" : "Pending"%></h2>
+              </div>
+            </li>
+          </ol>
+          <input type="image" src="cancel.png" alt="Submit" class="Modal-close" onclick=func1(<%= order.id%>)>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
 </body>
+
+<script>
+  function func(id){
+    var mod = document.getElementById(id);
+    mod.style.display="flex";
+  }
+  function func1(id) {
+    var mod = document.getElementById(id);
+    mod.style.display="none";
+  }
+ </script>

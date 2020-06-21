@@ -5,9 +5,30 @@ class UsersController < ApplicationController
     render "users/new"
   end
 
+  def index
+    if session[:user]
+      name = session[:user].split(" ")
+      name[1] = name[1] ? name[1] : ""
+      @users = User.all.find_by("first_name = ? and last_name = ?", name[0], name[1])
+    else
+      @users = session[:user]
+    end
+    render "search"
+  end
+
+  def select
+    session[:user] = params[:user_name]
+    redirect_to users_path
+  end
+
+  def update
+    session[:clerk] = params[:user_name]
+    redirect_to controller: "users", action: "show"
+  end
+
   def create
     if (@owner)
-      user = User.create!(
+      user = User.new(
         first_name: params[:first_name],
         last_name: params[:last_name],
         email_id: params[:email],
@@ -23,15 +44,15 @@ class UsersController < ApplicationController
         password: params[:password],
         role: "User",
       )
-      if user.save
-        session[:current_user_id] = user.id
-        flash[:notice] = user.first_name + ", we have sent you a mail. Please click on the link to verify!"
-        UserMailer.registration_confirmation(user).deliver
-        redirect_to new_user_path
-      else
-        flash[:error] = user.errors.full_messages.join(", ")
-        redirect_to new_user_path
-      end
+    end
+    if user.save
+      session[:current_user_id] = user.id
+      flash[:notice] = user.first_name + ", we have sent you a mail. Please click on the link to verify!"
+      UserMailer.registration_confirmation(user).deliver
+      redirect_to new_user_path
+    else
+      flash[:error] = user.errors.full_messages.join(", ")
+      redirect_to new_user_path
     end
   end
 

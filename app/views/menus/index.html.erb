@@ -37,7 +37,7 @@
     <% end %>
   <div class="menu-table">
     <h1 class="table-head">Menu List</h1>
-    <% Menuitem.order(:category_name).category.each do |category_name| %>
+    <% Menuitem.display_category(Menu.find_by(activemenu: true)).each do |category_name| %>
       <h1 class="menuitem-type">
         <%= category_name.category_name %>
       </h1>
@@ -51,7 +51,7 @@
           <th>Desc.</th>
         </tr>
 
-        <% Menuitem.match(Menu.activemenu?.id,category_name).each do |mi| %>
+        <% Menuitem.find2(category_name.category_name).each do |mi| %>
           <tr id = "<%= mi.name %>">
             <td class="menu-namecolumn"><%= mi.name %></td>
             <td name="price"><%= mi.price %></td>

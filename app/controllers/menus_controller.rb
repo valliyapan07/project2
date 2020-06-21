@@ -2,10 +2,10 @@ class MenusController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    if @current_user
-      render "index"
-    else
+    if @owner
       render "menu_list"
+    else
+      render "index"
     end
   end
 

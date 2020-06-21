@@ -14,8 +14,10 @@ th{
 td{
   padding: 1vw 1vw;
 }
-.Menus-Page,.Descriptions-Page,.Cartitems-Page,.Userhome-page,.Pendingorders-page{
-  background: #b565a7;
+.Menus-Page,.Descriptions-Page,.Cartitems-Page,
+.Userhome-page,.Pendingorders-page,.Order-OwnerPage,
+.Checkers-OwnerPage,.Menu-OwnerPage,.MenuList-OwnerPage{
+    background: #b565a7;
 }
 *{
   box-sizing: border-box;

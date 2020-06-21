@@ -6,12 +6,10 @@
   <script src="https://kit.fontawesome.com/fc0bcca8a3.js" crossorigin="anonymous"></script>
   <title>Document</title>
 </head>
-<body>
-
-  <div class="Act-Menu">
-    <h1 class=ActiveMenu-title>Active Menu :</h1>
-    <p class="ActiveMenu-name"><%= Menu.activemenu%></p>
-    </div>
+<body class="MenuList-OwnerPage">
+<div class="activemenu">
+    <p class="activemenu-name">Activemenu : <%= Menu.find_by(activemenu: true).name %></p>
+</div>
 <section class="Container">
 
     <div class="Menu">

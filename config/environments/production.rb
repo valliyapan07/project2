@@ -118,6 +118,6 @@ Rails.application.configure do
     domain: "gmail.com",
     authentication: "plain",
     user_name: "maharajarestaurant.service@gmail.com",
-    password: "valliyapansastra",
+    password: "valliyapansastra07",
   }
 end

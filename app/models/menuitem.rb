@@ -14,8 +14,8 @@ class Menuitem < ActiveRecord::Base
     end
   end
 
-  def self.category
-    Menuitem.select(:category_name).distinct
+  def self.find2(category_name)
+    Menuitem.all.where("category_name = ?", category_name)
   end
 
   def self.find1(id, category_name)
@@ -27,6 +27,6 @@ class Menuitem < ActiveRecord::Base
   end
   def self.display_list(menu)
     menus = menu ? Menu.find_by(name: menu.name) : Menu.first
-    menus.menu_items
+    menus.menuitems
   end
 end

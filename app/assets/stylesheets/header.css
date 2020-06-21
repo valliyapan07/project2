@@ -4,13 +4,6 @@
   text-decoration: none;
   scroll-behavior: smooth;
 
-  }
-header{
-  background-color: rgb(250, 37, 37);
-  height: 6vw;
-  display: flex;
-  align-items: center;
-  width: 100%;
 }
 .Text{
 
@@ -28,10 +21,10 @@ header{
   background-color: #cc0e07dc;
   border-radius: 5px;
   border: 1px solid transparent;
- color: whitesmoke;
- font-size:1.3vw;
- font-weight:600;
- padding:.5vw 1vw;
+  color: whitesmoke;
+  font-size:1.3vw;
+  font-weight:600;
+  padding:.5vw 1vw;
 }
 nav{
   background-color: #1e1e1e;
@@ -39,7 +32,6 @@ nav{
   display: flex;
   float: left;
   height: inherit;
-
 }
 
 .List li{

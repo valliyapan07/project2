@@ -12,10 +12,15 @@ class ApplicationController < ActionController::Base
 
     current_user_id = session[:current_user_id]
     if current_user_id
-      if User.find(current_user_id).role == "Billing clerk"
+      if User.find(current_user_id).role == "Bill Checker"
         @current_user = User.find_by first_name: "Walk-incustomer"
+        @owner = false
         @current_billingclerk = User.find(current_user_id)
+      elsif User.find(current_user_id).role == "owner"
+        @current_user = User.find(current_user_id)
+        @owner = true
       else
+        @owner = false
         @current_user = User.find(current_user_id)
       end
     else

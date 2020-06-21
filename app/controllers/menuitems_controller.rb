@@ -6,7 +6,7 @@ class MenuitemsController < ApplicationController
 
   def edit
     session[:menu] = params[:menu_name]
-    redirect_to menus_path
+    redirect_to menuitems_path
   end
 
   def create
