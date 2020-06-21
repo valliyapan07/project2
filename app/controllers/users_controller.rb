@@ -42,7 +42,7 @@ class UsersController < ApplicationController
         last_name: params[:last_name],
         email_id: params[:email],
         password: params[:password],
-        role: "User",
+        role: "owner",
       )
     end
     if user.save
