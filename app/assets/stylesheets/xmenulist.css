@@ -16,7 +16,8 @@ td{
 }
 .Menus-Page,.Descriptions-Page,.Cartitems-Page,
 .Userhome-page,.Pendingorders-page,.Order-OwnerPage,
-.Checkers-OwnerPage,.Menu-OwnerPage,.MenuList-OwnerPage{
+.Checkers-OwnerPage,.Menu-OwnerPage,.MenuList-OwnerPage,
+.Search-OwnerPage,.UserReport-OwnerPage{
     background: #b565a7;
 }
 *{

@@ -6,7 +6,7 @@
 </head>
 
 <body class="Home-page">
-  <p class="Home-head">Welcome to Maharaja Restaurant!</p>
+  <p class="Home-head" id="Home-head">Welcome to Maharaja Restaurant!</p>
   <div class="Top-container">
     <div class="images">
       <img class="mySlides" src="bgimg3.jpg">
@@ -34,6 +34,37 @@
       <%= link_to "Sign-up", new_user_path, class:"signup" %>
     </div>
   </div>
+  <div class="ContactUs-Container">
+    <input class="ContactUs-Button" type="Button" value="Back To Top" onclick="scrollfunc()">
+    <div class="ContactUs">
+      <div class="ContactUs-Header">
+        <div class="ContactUsHeader-Title">
+          <p class="ContactUsHeader-Name">We Deliver To</p>
+          <ul>
+            <li class="ContactUsHeader-Details">Chennai</li>
+            <li class="ContactUsHeader-Details">Trichy</li>
+            <li class="ContactUsHeader-Details">Hyderabad</li>
+            <li class="ContactUsHeader-Details">Mumbai</li>
+            <li class="ContactUsHeader-Details">Bangalore</li>
+          </ul>
+        </div>
+        <div class="ContactUsHeader-Title">
+          <p class="ContactUsHeader-Name">Our Working Hours</p>
+          <ul>
+            <li class="ContactUsHeader-Details">Weekdays: 8am - 11pm<li>
+            <li class="ContactUsHeader-Details">Weekends: 9am - 9pm</li>
+          </ul>
+        </div>
+        <div class="ContactUsHeader-Title">
+          <p class="ContactUsHeader-Name">Connect To Us</p>
+          <ul>
+            <li class="ContactUsHeader-Details">Email: maharajarestaurant.service@gmail.com<li>
+            <li class="ContactUsHeader-Details">Phone: 9003871119</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
@@ -52,4 +83,10 @@
     x[myIndex - 1].style.display = "block";
     setTimeout(carousel, 4000); // Change image every 2 seconds
   }
+  function scrollfunc()
+  {
+    var elem = document.getElementById("Home-head");
+    elem.scrollIntoView({behavior: 'smooth'});
+  }
+
 </script>

@@ -13,15 +13,23 @@ class OrdersController < ApplicationController
     redirect_to userhome_index_path
   end
 
+  def hold1
+    if params[:from_date] == "" || params[:to_date] == ""
+      flash[:error] = "Start Date or End Date Should not be empty!!"
+    elsif params[:from_date] > params[:to_date]
+      flash[:error] = "Enter a valid date!!"
+    end
+    session[:filter] = "DP"
+    session[:from_date] = params[:from_date]
+    session[:to_date] = params[:to_date]
+    redirect_to users_path
+  end
+
   def index
     @from = session[:from_date]
     @to = session[:to_date]
     @filter = session[:filter]
     render "order"
-  end
-
-  def show
-    render "user_order"
   end
 
   def hold
@@ -30,7 +38,6 @@ class OrdersController < ApplicationController
     elsif params[:from_date] > params[:to_date]
       flash[:error] = "Enter a valid date!!"
     end
-    session[:filter] = "DP"
     session[:from_date] = params[:from_date]
     session[:to_date] = params[:to_date]
     redirect_to orders_path
@@ -51,6 +58,11 @@ class OrdersController < ApplicationController
       order.delivered_at = nil
     end
     order.save
-    redirect_to orders_path
+    if @current_billingclerk
+      flash[:notice] = "Order Id #{id} is delivered"
+      redirect_to controller: "pendingorders", action: "index"
+    else
+      redirect_to orders_path
+    end
   end
 end

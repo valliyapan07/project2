@@ -9,19 +9,33 @@
 
 <body class="Signin-form">
   <h1 class="FormSection-title">Login to your page!</h1>
-  <Section class="UsersNew">
-    <%= form_with url: sessions_path do |form| %>
-      <div class="Form-section">
-        <p class="FormInput-label">Email</p>
-        <%= form.email_field :email, class: "Form-input" %>
+  <div style="display: flex; margin: 0 auto; margin-bottom: 2vw; width: 70vw;background: #00b4c3">
+    <Section>
+      <img src="https://thumbs.dreamstime.com/b/restaurant-cafe-exterior-building-vector-cartoon-illustration-landscape-food-drink-chef-waiter-welcome-88204856.jpg"
+        class="FormSection-Image">
+    </Section>
+    <Section class="UsersNew">
+      <%= form_with url: sessions_path do |form| %>
+        <div class="Form-section">
+          <p class="FormInput-label">Email</p>
+          <%= form.email_field :email, class: "Form-input" %>
+        </div>
+        <div class="Form-section">
+          <p class="FormInput-label">Password</p>
+          <%= form.password_field :password, class: "Form-input" %>
+        </div>
+        <div class="FormSection-signin">
+          <%= form.submit "Sign in", class: "Form-submit" %>
+        </div>
+      <% end %>
+      <hr>
+      <div class="FormSection-new">
+        <p class="FormSection-text">Create a new account</p>
+        <div class="Login-buttons">
+          <%= link_to "Create", new_user_path,class: "Form-submit", method: "get" %>
+        </div>
       </div>
-      <div class="Form-section">
-        <p class="FormInput-label">Password</p>
-        <%= form.password_field :password, class: "Form-input" %>
-      </div>
-      <div class="FormSection-signin">
-        <%= form.submit "Sign in", class: "Form-submit" %>
-      </div>
-    <% end %>
-  </Section>
+      <hr>
+    </Section>
+  </div>
 </body>

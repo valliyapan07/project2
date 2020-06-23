@@ -23,7 +23,11 @@ class User < ActiveRecord::Base
   end
 
   def self.show
-    User.all.where(role: "Customer")
+    User.all.where(role: "User")
+  end
+
+  def self.show1(from, to, user)
+    Order.all.where("ordered_at > ? and ordered_at < ? and user_id = ?", from, to, user.id)
   end
 
   def self.show_checker

@@ -15,7 +15,7 @@
       <input class="Go" type="button" value="Go!" onclick="scrollfunc()">
     </div>
     <ul class="datalist" id="myul">
-      <% Menuitem.all.each do |t| %>
+      <% Menu.find_by(activemenu: true).menuitems.all.each do |t| %>
         <li class="Option" id="<%= t %>" onclick="myfunc2(this.id)"><%= t.name %></li>
       <% end %>
     </ul>

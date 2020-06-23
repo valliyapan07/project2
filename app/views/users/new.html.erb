@@ -9,27 +9,33 @@
 
 <body class="Signup-form">
   <h1 class="FormSection-title">Welcome new user!</h1>
-  <Section class="UsersNew">
-    <%= form_with url: users_path do |form| %>
-      <div class="Form-section">
-        <p class="FormInput-label">First Name</p>
-        <%= form.text_field :first_name, class: "Form-input" %>
-      </div>
-      <div class="Form-section">
-        <p class="FormInput-label">Last Name</p>
-        <%= form.text_field :last_name, class: "Form-input" %>
-      </div>
-      <div class="Form-section">
-        <p class="FormInput-label">Email</p>
-        <%= form.email_field :email, class: "Form-input" %>
-      </div>
-      <div class="Form-section">
-        <p class="FormInput-label">Password</p>
-        <%= form.password_field :password, class: "Form-input" %>
-      </div>
-      <div class="FormSection-signup">
-        <%= form.submit "Sign Up", class: "Form-submit" %>
-      </div>
-    <% end %>
-  </Section>
+  <div style="display: flex; margin: 0 auto; width: 70vw;background: #00b4c3; margin-bottom: 2vw;">
+    <Section>
+      <img src="https://thumbs.dreamstime.com/b/restaurant-cafe-exterior-building-vector-cartoon-illustration-landscape-food-drink-chef-waiter-welcome-88204856.jpg"
+        class="FormSection-Image">
+    </Section>
+    <Section class="UsersNew">
+      <%= form_with url: users_path do |form| %>
+        <div class="Form-section">
+          <p class="FormInput-label">First Name</p>
+          <%= form.text_field :first_name, class: "Form-input" %>
+        </div>
+        <div class="Form-section">
+          <p class="FormInput-label">Last Name</p>
+          <%= form.text_field :last_name, class: "Form-input" %>
+        </div>
+        <div class="Form-section">
+          <p class="FormInput-label">Email</p>
+          <%= form.email_field :email, class: "Form-input" %>
+        </div>
+        <div class="Form-section">
+          <p class="FormInput-label">Password</p>
+          <%= form.password_field :password, class: "Form-input" %>
+        </div>
+        <div class="FormSection-signup">
+          <%= form.submit "Sign Up", class: "Form-submit" %>
+        </div>
+      <% end %>
+    </Section>
+  </div>
 </body>

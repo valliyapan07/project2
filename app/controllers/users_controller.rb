@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  skip_before_action :ensure_user_logged_in
-
   def new
     render "users/new"
   end
@@ -42,7 +40,7 @@ class UsersController < ApplicationController
         last_name: params[:last_name],
         email_id: params[:email],
         password: params[:password],
-        role: "owner",
+        role: "User",
       )
     end
     if user.save
@@ -83,5 +81,29 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.destroy
     redirect_to controller: "users", action: "show"
+  end
+
+  def hold
+    if params[:from_date] == "" || params[:to_date] == ""
+      flash[:error] = "Start Date or End Date Should not be empty!!"
+    elsif params[:from_date] > params[:to_date]
+      flash[:error] = "Enter a valid date!!"
+    end
+    session[:from_date] = params[:from_date]
+    session[:to_date] = params[:to_date]
+    redirect_to report_path
+  end
+
+  def edit
+    if session[:user]
+      name = session[:user].split(" ")
+      name[1] = name[1] ? name[1] : ""
+      @users = User.all.find_by("first_name = ? and last_name = ?", name[0], name[1])
+      @from = session[:from_date]
+      @to = session[:to_date]
+    else
+      @users = session[:user]
+    end
+    render "report"
   end
 end

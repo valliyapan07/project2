@@ -10,7 +10,7 @@
 </head>
 
 
-<body>
+<body class="Search-OwnerPage">
 
 
   <div class="Search-box">
@@ -28,171 +28,47 @@
   </ul>
   </div>
   <div class="Search-container1" id="Search-container">
-  <%= image_submit_tag("user.png",class: "User-png") %>
+  <div class="Searchcontainer1-image">
+    <%= image_submit_tag("user.png",class: "User-png") %>
+  </div>
     <h1 class="User-title">User Details</h1><hr>
     <% if @users == nil%>
     <h1 class=<%= @users?"found": "Not-found"%>>User not Found!!</h1>
     <% else %>
     <div class="Search-details">
-      <h1>User-Id</h1>
-      <h1 style="margin-left:4.5vw;">:</h1>
+      <h1 class="Search-detailshead">User-Id :</h1>
       <p><%=@users.id%></p>
     </div>
     <div class="Search-details">
-      <h1>First Name  </h1>
-      <h1 style="margin-left:1vw;">:</h1>
+      <h1 class="Search-detailshead">First Name :</h1>
       <p><%= @users.first_name%></p>
     </div>
     <div class="Search-details">
-      <h1>Last Name  </h1>
-      <h1 style="margin-left:1.4vw;">:</h1>
+      <h1 class="Search-detailshead">Last Name :</h1>
       <p><%= @users.last_name%></p>
     </div>
     <div class="Search-details">
-      <h1>Email-Id  </h1>
-      <h1 style="margin-left:3.5vw;">:</h1>
+      <h1 class="Search-detailshead">Email-Id :</h1>
       <p><%= @users.email_id%></p>
     </div>
     <div class="Search-details" >
-      <h1>Role  </h1>
-      <h1 style="margin-left:7.5vw;">:</h1>
+      <h1 class="Search-detailshead">Role :</h1>
       <p><%= @users.role%></p>
     </div>
     <div class="Search-details1">
-       <h1>Account created at</h1>
+       <h1 class="Search-detailshead2">Account created at</h1>
     </div>
     <div class="Search-details2">
-       <h1>Date & Time</h1>
-       <h1 style="margin-left:0vw;">:</h1>
+       <h1 class="Search-detailshead">Date & Time :</h1>
        <p><%= @users.created_at.to_s(:long)%></p>
     </div>
-    <%= submit_tag("View orders", class: "User-order" ,onclick: "func5()")%>
+    <div class="User-order1">
+      <%= link_to "View orders", report_path,class: "User-order", method: "patch" %>
+      </div>
     <% end %>
-  </div>
-  <div class="Order-Container" id="User-order">
-  <div class=Current-user1>
-    <h1>Name  :</h1>
-    <p><%= @users.first_name+" "+@users.last_name%></p>
-  </div>
-  <%= form_with(url: "/orders/hold", method: "post") do %>
-  <div class="Report" >
-    <h1>Start Date:</h1>
-    <input class="Start" type="Date" placeholder="dd/mm/yyyy" name="from_date">
-    <h1>End Date:</h1>
-    <input class="End" type="Date" placeholder="dd/mm/yyyy" name="to_date">
-  </div>
-  <%= submit_tag("View Report",class: "View") %>
-<% end %>
-<%= form_with(url: "/orders/select", method: "post") do %>
-<div class="Filter-Modal" id="filter">
 
-  <div class="Filter">
-  <label>
-   <input type="radio" name="filter" value="DP">Delivered + pending
-  </label>
-  <label>
-   <input type="radio" name="filter" value="D">Delivered alone
-  </label>
-  <label>
-    <input type="radio"  name="filter" value="P">Pending alone
-  </label>
-  <input type="image" src="cancel.png" alt="Submit" class="Modal-close" onclick=func3()>
-  <%= submit_tag("Apply",class: "Apply") %>
   </div>
 
-</div>
- <% end %>
-<% if @from=="" || @to=="" ||Order.display(@from,@to,@filter)==[]%>
-<div class="Report-container">
-  <h1 class="Orders-title1">Orders-not Found </h1>
-  </div>
-<% else %>
-<% Order.display(@from,@to,@filter).each do |order|%>
-   <div class="Modal-bg" id="<%= order.id%>">
-    <div class="Modal">
-    <div class="Border">
-     <ol>
-      <li class="OrderList">
-        <div class="Box1">
-          <h1>Name : </h1>
-          <h1><%= order.show_name%></h1>
-        </div>
-        <h1>Items</h1>
-        <ul>
-        <% order.orderitems.each do |orderitem|%>
-          <li>
-            <p class="Display-name"><%= orderitem.menuitem_name%></p>
-            <h2 class="Display-total"><%= orderitem.menuitem_quantity%> x <%= orderitem.menuitem_price%> = <%=orderitem.total%></h2>
-          </li>
-          <% end %>
-        </ul>
-        <h1></h1>
-        <div style="display:flex;">
-          <h1 class="Display-name1">Total Amount:</h1>
-          <p class="Display-total1">Rs.<%= Order.total(order.id)%></p>
-        </div>
-        <h1>Ordered on</h1>
-        <p><%= order.ordered_at.strftime("%d-%b-%Y")%> at <%= order.ordered_at.strftime("%I:%M %p")%></p>
-        <hr style="color:red;">
-        <div class="Box1">
-          <h1>Delivery status :</h1>
-          <h2 class=<%= order.delivered_at ? "Delivered" : "Pending"%>><%= order.delivered_at ? "Delivered" : "Pending"%></h2>
-
-        </div>
-         <%= form_with(url: "/orders/#{order.id}", method: "put") do %>
-        <div class="Box1">
-        <%= check_box_tag(name="delivered",
-                              value=nil,
-                              checked=order.delivered_at ? true : false ,
-                              class: "CheckBox",
-                              onclick:"this.form.submit()"
-                             )
-            %>
-            <h1 style="margin-top:0.5vw;">Click this to mark as <%= order.delivered_at ? "Pending" : "Delivered"%></h1>
-            </div>
-            <% end %>
-      </li>
-      </ol>
-       <input type="image" src="cancel.png" alt="Submit" class="Modal-close" onclick=func1(<%= order.id%>)>
-       </div>
-    </div>
-   </div>
-<% end %>
-
-   <div class="Report-container">
-  <div class="Title-box">
-    <h1 class="Orders-title">Orders Table</h1>
-    <%= image_submit_tag("filter1.png",class: "Filter-image",onclick: "func2()") %>
-    <h2>Filter</h2>
-  </div>
-  <div class="Date">
-    <h1>From-Date :</h1>
-    <h2><%= @from %></h2>
-  </div>
-   <div class="Date" style="float:right;margin-right:7%;">
-    <h1>To-Date :</h1>
-    <h2><%= @to %></h2>
-  </div>
-    <table class="Report-table">
-      <tr>
-        <th>Order-Id</th>
-        <th>User-Id</th>
-        <th>Ordered on</th>
-        <th style="padding-right:5vw;">Delivery Status</th>
-      </tr>
-    <% Order.display(@from,@to,@filter).each do |order|%>
-      <tr>
-        <td><%= order.id%></td>
-        <td><%= order.user_id%></td>
-        <td><%= order.ordered_at.strftime("%d-%b-%Y")%></td>
-        <td><%= order.delivered_at ? "Delivered" : "Pending"%>
-          <input type="image" src="details.svg" alt="Submit" class="Details1" onclick=func(<%= order.id%>)></td>
-      </tr>
-<% end %>
-    </table>
-   </div>
-   <% end %>
-   </div>
 </body>
 
 </html>
@@ -219,13 +95,11 @@
     document.getElementById("Search-container").style.display="block";
   }
   function MyFunc(id) {
-    var name = document.getElementById(id);
-    document.getElementById("Search").value = name.textContent;
-    let table = document.getElementById('mytable');
-    table.style.display="none";
-  }
-  function func5(){
-     document.getElementById("Search-container").style.display="none";
-     document.getElementById("User-order").style.display="block";
-  }
+    var name = document.getElementById(id).textContent;
+    document.getElementById("Search").value = name;
+     let list = document.getElementById('List');
+     list.style.display="none";
+
+    }
+
 </script>

@@ -17,7 +17,9 @@
         <h1 class="AddMenu">Menu name :</h1>
         <%= text_field_tag("name", nil, placeholder: "Type here", class: "MenuName") %>
       </div>
-      <%= submit_tag("Add", class: "Add",onclick: "myFunction()") %>
+      <div class="Submit-button">
+        <%= submit_tag("Add", class: "Add",onclick: "myFunction()") %>
+      </div>
     <% end %>
     <hr class="Horizontal">
     <h1 class="Menuitem-title">Add New Menuitem</h1>
@@ -25,7 +27,7 @@
     <div class="Select-Item">
 
       <div class="Select-Item1">
-        <h1>Select Menu :</h1>
+        <h1 class="SelectMenu">Select Menu :</h1>
             <select name="name">
               <% Menu.display.each do |menu|%>
                 <option value="<%= menu.name %>"><%= menu.name %></option>
@@ -34,17 +36,17 @@
       </div>
       <div class="Select-Item2">
         <div>
-          <h1>Menu-Item name:</h1>
-          <%= text_field_tag("menuitem_name", nil, placeholder: "Type here", class: "Name") %>
+          <h1 class="SelectItem-head">Menu-Item name:</h1>
+          <%= text_field_tag("menuitem_name", nil, placeholder: "Type here", class: "ItemName") %>
         </div>
         <div>
-          <h1>Price:</h1>
+          <h1 class="SelectItem-head">Price:</h1>
           <%= text_field_tag("price", nil, placeholder: "Type here",class: "Price") %>
         </div>
         <div>
-          <h1>Category name:</h1>
+          <h1 class="SelectItem-head">Category name:</h1>
           <select class="Select-category" name="category_name">
-                <option value="Break fast">Break fast</option>
+                <option value="Break fast">Break Fast</option>
                 <option value="Brunch">Brunch</option>
                 <option value="Lunch">Lunch</option>
                 <option value="Dinner">Dinner</option>
@@ -66,7 +68,9 @@
         <%= text_field_tag("img_addr", nil,class: "Image-addr" ,placeholder: "Type here") %>
       </div>
     </div>
+    <div class="Submit-button">
     <%= submit_tag("Add", class: "Add",onclick: "myFunction1()") %>
+    </div>
         <% end %>
         <hr class="Horizontal">
         <h1 class="Activemenu-title">Select Active Menu</h1>
@@ -80,8 +84,9 @@
           <% end %>
         </select>
     </div>
-
+  <div class="Submit-button">
   <%= submit_tag("Select", class: "Select",onclick: "myFunction2()") %>
+  </div>
   <% end %>
   <hr class="Horizontal">
   <h1 class="Edit">Edit Menu-Item</h1>
@@ -89,25 +94,24 @@
    <div class="Select-Item">
 
       <div class="Select-Item1" style="margin-left:5vw;">
-        <h1 style="margin-left:1vw;">Select Menu</h1>
+        <h1 class="SelectMenu">Select Menu</h1>
         <%= form_with(url: "/menuitems/#{4}/edit", method: "get") do %>
             <select name="menu_name" id="select1">
               <% Menu.display.each do |menu|%>
                 <option value="<%= menu.name %>" onclick="this.form.submit()"><%= menu.name %></option>
               <% end %>
             </select>
-        <% end %>
+          <% end %>
       </div>
-      <div class="Select-Item2"  style="margin-left:4vw;">
+       <div class="Select-Item2"  style="margin-left:4vw;">
        <%= form_with(url: "/menuitems/#{@menus.id}", method: "put") do %>
        <div class="Edit-menuitem2">
-          <h1>Menu:</h1>
+          <h1 class="MenuSelected-head">Menu :</h1>
           <h1 class="Menu-Selected"><%= @menus.name%></h1>
-       </div>
+        </div>
 
         <div class="Edit-menuitem1">
-          <h1>Menu Item :</h1>
-
+          <h1 class="MenuSelected-head">Menu Item :</h1>
           <select class="Select-menu" name="menu_name" id="select1">
 
               <% Menuitem.display_list(@menus).each do |menuitem|%>
@@ -116,13 +120,15 @@
             </select>
         </div>
         <div class="Edit-menuitem2">
-          <h1>Price:</h1>
+          <h1 class="MenuSelected-head">Price :</h1>
           <%= text_field_tag("price", nil, placeholder: "Type here",class: "Price1") %>
         </div>
 
       </div>
     </div>
+    <div class="Submit-button">
     <%= submit_tag("Change", class: "Select2",onclick: "myFunction3()") %>
+    </div>
         <% end %>
   </div>
 

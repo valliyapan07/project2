@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,15 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <%# <script src="https://kit.fontawesome.com/fc0bcca8a3.js" crossorigin="anonymous"></script> %>
 </head>
 
-<body class="Pendingorders-page">
-  <div class="back-container">
-    <form action="/menus" method="get">
-      <%= button_tag(value="Back",class: "Back2") %>
-    </form>
+
+<body class="UserReport-OwnerPage">
+<div class="Order-Container" id="User-order">
+  <div class=Current-user1>
+    <h1>Name  :</h1>
+    <p><%=@users? @users.first_name+" "+@users.last_name : "nothing "%></p>
   </div>
-  <%= form_with(url: "/pendingorders/new", method: "patch") do %>
+  <%= form_with(url: "/users/hold", method: "post") do %>
   <div class="Report" >
     <h1>Start Date:</h1>
     <input class="Start" type="Date" placeholder="dd/mm/yyyy" name="from_date">
@@ -23,22 +24,18 @@
   </div>
   <%= submit_tag("View Report",class: "View") %>
 <% end %>
-  <div class="menu-table">
-  <% if @from=="" || @to=="" ||Order.display(@from,@to,@filter)==[]%>
+
+<% if @users==nil || @from=="" || @to=="" ||User.show1(@from,@to,@users)==[]%>
 <div class="Report-container">
-  <h1 class="Orders-title1">Orders-not Found </h1>
+  <h1 class="Orders-title1">Enter a  valid date Range</h1>
   </div>
 <% else %>
-<% Order.display(@from,@to,@filter).each do |order|%>
+<% User.show1(@from,@to,@users).each do |order|%>
    <div class="Modal-bg" id="<%= order.id%>">
     <div class="Modal">
     <div class="Border">
      <ol>
       <li class="OrderList">
-        <div class="Box1">
-          <h1>Name : </h1>
-          <h1><%= order.show_name%></h1>
-        </div>
         <h1>Items</h1>
         <ul>
         <% order.orderitems.each do |orderitem|%>
@@ -75,7 +72,7 @@
             <% end %>
       </li>
       </ol>
-       <input type="image" src="cancel.png" alt="Submit" class="Modal-close" onclick=func1(<%= order.id%>)>
+       <%= image_submit_tag('cancel.png',class: "Modal-close",onclick: "func1(#{order.id})") %>
        </div>
     </div>
    </div>
@@ -93,28 +90,28 @@
     <h1>To-Date :</h1>
     <h2><%= @to %></h2>
   </div>
-  <table>
-        <tr>
-          <th class="menu-namecolumn">Order-Id</th>
-          <th>User-id</th>
-          <th>Ordered on</th>
-          <th >Delivery status</th>
-        </tr>
-        <% Order.display(@from,@to,@filter).each do |order|%>
+    <table class="Report-table">
+      <tr>
+        <th>Order-Id</th>
+        <th>User-Id</th>
+        <th>Ordered on</th>
+        <th style="padding-right:5vw;">Delivery Status</th>
+      </tr>
+    <% User.show1(@from,@to,@users).each do |order|%>
       <tr>
         <td><%= order.id%></td>
         <td><%= order.user_id%></td>
         <td><%= order.ordered_at.strftime("%d-%b-%Y")%></td>
         <td><%= order.delivered_at ? "Delivered" : "Pending"%>
-          <input type="image" src="details.svg" alt="Submit" class="Details1" onclick=func(<%= order.id%>)></td>
+           <%= image_submit_tag('details.svg',class: "Details1",onclick: "func(#{order.id})") %>
       </tr>
 <% end %>
-
-      </table>
-      </div>
-      <% end %>
-      </div>
+    </table>
+   </div>
+   <% end %>
+   </div>
 </body>
+</html>
 <script>
 function func(id){
     var mod = document.getElementById(id);
@@ -122,6 +119,14 @@ function func(id){
   }
   function func1(id) {
     var mod = document.getElementById(id);
+    mod.style.display="none";
+  }
+  function func2(){
+    var mod = document.getElementById("filter");
+    mod.style.display="flex";
+  }
+  function func3(){
+    var mod = document.getElementById("filter");
     mod.style.display="none";
   }
 </script>

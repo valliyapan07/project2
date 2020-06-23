@@ -1,6 +1,5 @@
 .Srch .Search-img {
   height: 3vw;
-  margin-top: 2.4vw;
 }
 .Srch,
 .Srch1 {
@@ -12,66 +11,67 @@
 
 .Search3,
 .Search4 {
-  margin-top: 2vw;
-  margin-left: 1vw;
-  padding: 1vw;
+  margin-right: 1.5vw;
+  padding: 0.4vw 0.5vw;
   border-radius: 5px;
   border: 1px solid transparent;
   background-color: #dad6d6;
   color: #1e1e1e;
   width: 58%;
-  font-size: 1.5vw;
+  height: 2.5vw;
+  font-size: 1.3vw;
 }
 
 .View-details {
   background-color: rgb(15, 99, 15);
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   color: rgb(250, 248, 248);
-  padding: 0.5vw;
+  padding: 0.4vw 0.7vw;
   border-radius: 5px;
-  margin: 2vw 0 0 5vw;
-
   border: 1px solid transparent;
+  height: 2.5vw;
 }
 .Search-container1 {
   background-color: rgb(255, 223, 223);
   margin-left: 35vw;
   width: 50%;
-  margin-top: 5vw;
+  font-family: sans-serif;
+  margin-top: 2.5vw;
+  padding-bottom: 1.5vw;
   border-radius: 30px;
   margin-bottom: 2vw;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 1px 7px rgb(109, 107, 107);
 }
 .Search-container1 .Not-found {
-  margin-left: 12vw;
-  padding-top: 7vw;
-  padding-bottom: 7vw;
-  font-size: 3vw;
+  font-size: 1.5vw;
+  text-align: center;
+  margin-top: 1vw;
 }
-.User-title {
-  font-size: 2vw;
-  padding-top: 0.5vw;
-  margin-left: 19vw;
-  margin-bottom: 1vw;
-}
+
 .Search-details {
   display: flex;
   margin-top: 3.5vw;
   margin-left: 3.5vw;
-  width: 100%;
 }
-.Search-container1 h1 {
-  font-weight: 600;
-  font-size: 1.7vw;
+
+.Search-detailshead{
+  font-size: 1.4vw;
+}
+.Search-detailshead2{
+  font-size: 1.4vw;
+  background: #6827b0;
+  margin-right: 2vw;
+  padding: 0.5vw 0vw;
+  color: #ffffff;
+  text-align: center;
 }
 .User-png {
-  margin-left: 22vw;
   width: 12%;
   margin-top: 0.5vw;
 }
 .Search-container1 p {
   margin-left: 1vw;
-  font-size: 1.7vw;
+  font-size: 1.4vw;
 }
 .Search-details1 {
   margin-top: 3.5vw;
@@ -114,15 +114,15 @@
 .User-order {
   margin-left: 20vw;
   padding: 0.7vw;
-  font-size: 1.4vw;
-  margin-bottom: 2vw;
+  font-size: 1.5vw;
   background-color: green;
   border: 1px solid transparent;
   border-radius: 5px;
   color: white;
 }
-.Order-Container {
-  display: none;
+.User-order1 {
+  padding-top: 1.5vw;
+  padding-bottom: 4vw;
 }
 .Current-user1 {
   display: flex;
@@ -135,4 +135,8 @@
 }
 .Current-user1 p {
   margin-left: 1.4vw;
+}
+.Searchcontainer1-image{
+  display: flex;
+  justify-content: center;
 }
