@@ -84,9 +84,16 @@
   width: 40vw;
   height: 37vw;
 }
+.FormSection-container{
+  display: flex;
+  margin: 0 auto;
+  width: 70vw;
+  background: #00b4c3;
+  margin-bottom: 2vw;
+}
 @media only screen and (max-width:768px){
   .FormSection-title{
-    font-size: 6vw;
+    font-size: 8vw;
     margin-top: 12%;
     margin-bottom: 6vw;
   }
@@ -94,21 +101,39 @@
     margin-bottom: 4vw;
   }
   .FormInput-label{
-    font-size: 3.1vw;
+    font-size: 4.5vw;
   }
   .Form-input{
     font-size: 3vw;
     border-radius: 1.5vw;
     padding: 0.7vw 1.8vw;
-    width: 34vw;
+    width: 58vw;
   }
   .Form-submit{
-    font-size: 2.9vw;
+    font-size: 4vw;
     padding: 1vw 1.4vw;
     border-radius: 0.8vw;
   }
   .UsersNew{
-    padding: 8vw 8vw;
-    width: 50vw;
+    padding: 8vw 6vw;
+    width: 70vw;
+    margin-top: 0;
+  }
+  .FormSection-container{
+    display: grid;
+    width: 80vw;
+  }
+  .FormSectionImage-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 5vw;
+  }
+  .FormSection-Image{
+    width: 70vw;
+    height: 70vw;
+  }
+  .FormSection-text{
+    font-size: 4.5vw;
+    margin-bottom: 3.5vw;
   }
 }

@@ -151,30 +151,31 @@
     padding-bottom: 1.5vw;
   }
   .Home-head{
-    font-size: 5vw;
+    font-size: 5.5vw;
     padding-top: 2.4vw;
     margin-bottom: 4vw;
     margin-top: 8vw;
   }
   .Description{
-    font-size: 2.9vw;
+    font-size: 3.3vw;
     padding: 7% 4%;
     padding-bottom: 0%;
   }
   .Description-content1,.Description-content2{
-    line-height: 4.4vw;
+    line-height: 5vw;
     margin-bottom: 3.8vw;
+    font-size: 3.5vw;
   }
   .Description-content2{
     margin-bottom: 0vw;
   }
   .Login-head{
-    font-size: 2.9vw;
-    margin: 3vw;
-    margin-top: 4.5vw;
+    font-size: 3.5vw;
+    line-height: 5vw;
+    margin: 4.5vw;
   }
   .signin,.signup{
-    font-size: 2.9vw;
+    font-size: 3.5vw;
     margin-right: 5vw;
     padding: 1vw 1vw;
   }
@@ -193,5 +194,48 @@
     border-radius: 0.8vw;
     padding: 1.2vw 0.5vw;
     width: 75vw;
+  }
+  .ContactUs-Container{
+    margin-top: 9vw;
+    padding-bottom: 3vw;
+  }
+  .ContactUs{
+    margin-top: 4vw;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+  }
+  .ContactUs-Header{
+    display: grid;
+  }
+  .ContactUsHeader-Title{
+    font-size: 3vw;
+    display: grid;
+    width: auto;
+    margin-bottom: 2vw;
+    padding: 0vw 4.5vw;
+  }
+  .ContactUsHeader-Title ul{
+    display: flex;
+    justify-content: center;
+  }
+  .ContactUsHeader-Name{
+    margin-bottom: 2vw;
+    line-height: 5vw;
+    width: auto;
+    text-align: center;
+  }
+  .ContactUsHeader-Details{
+    margin-bottom: 0.5vw;
+    line-height: 5vw;
+    width: auto;
+    margin-right: 4vw;
+  }
+  .ContactUs-Button{
+    width: 100%;
+    margin-bottom: 2vw;
+    padding: 0.7vw 0vw;
+    font-size: 3vw;
   }
 }

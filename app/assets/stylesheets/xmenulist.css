@@ -296,7 +296,7 @@ table{
     padding: 3vw;
     margin-bottom: 2.7vw;
   }
-  .save,.home,.signout,.Back2,.pending{
+  .save,.home,.signout,.Back2,.pending,.Details-button{
     font-size: 3.1vw;
     margin-right: 2.5vw;
     padding: 0.7vw 1.1vw;
@@ -396,6 +396,16 @@ table{
   .Go{
     font-size: 3.1vw;
     width: 10vw;
+  }
+  .Status p{
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+  }
+  .Status-text{
+    margin-left: 2vw;
+    background-color: #000;
+    border-radius: 2vw;
+    padding: 1vw 2vw;
   }
 }
 input::-webkit-outer-spin-button,
