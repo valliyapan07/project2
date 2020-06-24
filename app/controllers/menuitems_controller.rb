@@ -17,14 +17,13 @@ class MenuitemsController < ApplicationController
     price = params[:price]
     category_name = params[:category_name]
     img_addr = params[:img_addr]
-
     Menuitem.create!(menu_id: id,
                      name: menuitem_name,
                      description: description,
                      price: price,
                      category_name: category_name,
-                     imgaddr: img_addr)
-
+                     imgaddr: img_addr
+                    )
     redirect_to menus_path
   end
 

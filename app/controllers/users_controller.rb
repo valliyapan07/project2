@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :ensure_user_logged_in
+
   def new
     render "users/new"
   end
@@ -11,6 +13,7 @@ class UsersController < ApplicationController
     else
       @users = session[:user]
     end
+    current_user
     render "search"
   end
 
@@ -74,6 +77,7 @@ class UsersController < ApplicationController
     else
       @users = session[:clerk]
     end
+    current_user
     render "checkers"
   end
 

@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
         @owner = false
         @current_billingclerk = User.find(current_user_id)
       elsif User.find(current_user_id).role == "owner"
-        @current_user = User.find(current_user_id)
         @current_billingclerk = nil
         @owner = true
+        @current_user = User.find(current_user_id)
       else
         @owner = false
         @current_billingclerk = nil
@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
 
   def selected_menu
     return @current_menu if @current_menu
+
     if session[:menu]
       @current_menu = session[:menu]
     else
@@ -41,6 +42,7 @@ class ApplicationController < ActionController::Base
 
   def selected_user
     return @users if @users
+
     if session[:user]
       @users = session[:user]
     else

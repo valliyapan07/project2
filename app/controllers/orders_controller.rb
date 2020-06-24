@@ -6,7 +6,8 @@ class OrdersController < ApplicationController
                         menuitem_id: t.menuitem_id,
                         menuitem_name: t.name,
                         menuitem_price: t.price,
-                        menuitem_quantity: t.quantity)
+                        menuitem_quantity: t.quantity
+                      )
     end
     @current_user.cartitems.destroy_all
     flash[:notice] = "Thanks for Buying " + @current_user.first_name + "!"

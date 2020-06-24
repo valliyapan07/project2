@@ -18,7 +18,8 @@ class CartitemsController < ApplicationController
                                       price: menuitem.price,
                                       quantity: quantity,
                                       menuitem_id: menuitem_id,
-                                      user_id: @current_user.id)
+                                      user_id: @current_user.id
+                                      )
     if quantity.to_i != 0
       cart.save!
       flash[:notice] = menuitem.name + " is added to cart."

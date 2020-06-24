@@ -141,9 +141,9 @@
 }
 @media only screen and (max-width:768px){
   .mySlides{
-    width: 80vw;
+    width: 85vw;
     margin: 0 auto;
-    height: 50vw;
+    height: 55vw;
   }
   .Top-container{
     display: grid;
@@ -153,8 +153,8 @@
   .Home-head{
     font-size: 5.5vw;
     padding-top: 2.4vw;
-    margin-bottom: 4vw;
-    margin-top: 8vw;
+    margin-bottom: 5vw;
+    margin-top: 14vw;
   }
   .Description{
     font-size: 3.3vw;
@@ -196,7 +196,7 @@
     width: 75vw;
   }
   .ContactUs-Container{
-    margin-top: 9vw;
+    margin-top: 14vw;
     padding-bottom: 3vw;
   }
   .ContactUs{
