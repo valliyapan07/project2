@@ -16,6 +16,6 @@ class Menu < ActiveRecord::Base
 
   def self.activemenu
     menu = Menu.find_by(activemenu: true)
-    menu ? menu.name : "Not Selected"
+    menu ? menu.name : Menu.first.name
   end
 end
