@@ -344,4 +344,8 @@
   .Select-Item5 div h1 {
     font-size: 3.8vw;
   }
+  .Select-menu{
+    font-size: 3vw;
+    width: 50%;
+  }
 }
