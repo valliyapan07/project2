@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 
-<body class="Signup-form">
+<body class="Signup-form" >
   <h1 class="FormSection-title">Welcome new user!</h1>
   <div class="FormSection-container">
     <Section class="FormSectionImage-container">
@@ -18,7 +18,7 @@
       <%= form_with url: users_path do |form| %>
         <div class="Form-section">
           <p class="FormInput-label">First Name</p>
-          <%= form.text_field :first_name, class: "Form-input" %>
+          <%= form.text_field :first_name, class: "Form-input", autofocus: "autofocus" %>
         </div>
         <div class="Form-section">
           <p class="FormInput-label">Last Name</p>

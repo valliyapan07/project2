@@ -1,6 +1,7 @@
 class MenuitemsController < ApplicationController
   def index
     @menus = Menu.find_by(name: selected_menu)
+    @menuitems = Menuitem.find_by(name: selected_menuitem)
     render "menu"
   end
 
@@ -17,14 +18,19 @@ class MenuitemsController < ApplicationController
     price = params[:price]
     category_name = params[:category_name]
     img_addr = params[:img_addr]
-    Menuitem.create!(menu_id: id,
-                     name: menuitem_name,
-                     description: description,
-                     price: price,
-                     category_name: category_name,
-                     imgaddr: img_addr
-                    )
-    redirect_to menus_path
+    menuitem = Menuitem.new(menu_id: id,
+                            name: menuitem_name,
+                            description: description,
+                            price: price,
+                            category_name: category_name,
+                            imgaddr: img_addr)
+    if menuitem.save
+      flash[:notice] = "Menuitem added successfully"
+      redirect_to menus_path
+    else
+      flash[:error] = menuitem.errors.full_messages.join(", ")
+      redirect_to menuitems_path
+    end
   end
 
   def destroy
@@ -36,7 +42,7 @@ class MenuitemsController < ApplicationController
 
   def update
     menu_id = params[:id]
-    array = params[:menu_name].split("/")
+    array = params[:menuitem_name].split("/")
     menuitem_name = array[0]
     category = array[1]
     price = params[:price]

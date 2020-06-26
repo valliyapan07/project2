@@ -91,6 +91,7 @@
   background: #00b4c3;
   margin-bottom: 2vw;
 }
+
 @media only screen and (max-width:768px){
   .FormSection-title{
     font-size: 8vw;

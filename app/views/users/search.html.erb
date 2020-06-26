@@ -1,105 +1,114 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <%# <script src="https://kit.fontawesome.com/fc0bcca8a3.js" crossorigin="anonymous"></script> %>
-</head>
-
-
-<body class="Search-OwnerPage">
-
-
-  <div class="Search-box">
-  <%= form_with(url: "/users/select", method: "patch") do %>
-  <div class="Srch">
-    <%= image_submit_tag('search.svg',class: "Search-img") %>
-    <input class="Search3" name="user_name" autocomplete="off" type="text" placeholder="Type here to Search" id="Search" onkeyup="searchFunc()">
-    <%= submit_tag("View Details", class: "View-details",onclick: "Func1()") %>
-  </div>
-  <% end %>
-   <ul class="Unordered-list1" id="List">
-  <% User.show.each do |user|%>
-    <li class="Checker-list" onclick="MyFunc(this.id)" id="<%=user.first_name %>"> <%=user.first_name+" "+user.last_name%></li>
-  <% end %>
-  </ul>
-  </div>
-  <div class="Search-container1" id="Search-container">
-  <div class="Searchcontainer1-image">
-    <%= image_submit_tag("user.png",class: "User-png") %>
-  </div>
-    <h1 class="User-title">User Details</h1><hr>
-    <% if @users == nil%>
-    <h1 class=<%= @users?"found": "Not-found"%>>User not Found!!</h1>
-    <% else %>
-    <div class="Search-details">
-      <h1 class="Search-detailshead">User-Id :</h1>
-      <p><%=@users.id%></p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%# <script src="https://kit.fontawesome.com/fc0bcca8a3.js" crossorigin="anonymous"></script> %>
+  </head>
+  <body class="Search-OwnerPage">
+    <div class="Search-box">
+      <%= form_with(url: "/users/select", method: "patch") do %>
+        <div class="Srch">
+          <%= image_submit_tag('search.svg',class: "Search-img") %>
+          <%= text_field_tag("user_name" ,
+                              nil,
+                              class: "Search3",
+                              autofocus: "autofocus",
+                              autocomplete: "off",
+                              placeholder:"Type here to Search",
+                              onkeyup: "searchFunc()"
+                            )
+          %>
+          <%= submit_tag("View Details", class: "View-details",onclick: "Func1()") %>
+        </div>
+      <% end %>
+      <ul class="Unordered-list1" id="List">
+        <% User.show.each do |user|%>
+          <li class="Checker-list" onclick="MyFunc(this.id)" id="<%=user.first_name %>"> <%=user.first_name+" "+user.last_name%></li>
+        <% end %>
+      </ul>
     </div>
-    <div class="Search-details">
-      <h1 class="Search-detailshead">First Name :</h1>
-      <p><%= @users.first_name%></p>
-    </div>
-    <div class="Search-details">
-      <h1 class="Search-detailshead">Last Name :</h1>
-      <p><%= @users.last_name%></p>
-    </div>
-    <div class="Search-details">
-      <h1 class="Search-detailshead">Email-Id :</h1>
-      <p><%= @users.email_id%></p>
-    </div>
-    <div class="Search-details" >
-      <h1 class="Search-detailshead">Role :</h1>
-      <p><%= @users.role%></p>
-    </div>
-    <div class="Search-details1">
-       <h1 class="Search-detailshead2">Account created at</h1>
-    </div>
-    <div class="Search-details2">
-       <h1 class="Search-detailshead">Date & Time :</h1>
-       <p><%= @users.created_at.to_s(:long)%></p>
-    </div>
-    <div class="User-order1">
-      <%= link_to "View orders", report_path,class: "User-order", method: "patch" %>
+    <div class="Search-container1" id="Search-container">
+      <div class="Searchcontainer1-image">
+        <%= image_submit_tag("user.png",class: "User-png") %>
       </div>
-    <% end %>
-
-  </div>
-
-</body>
-
+      <h1 class="User-title">User Details</h1><hr>
+      <% if @users == nil%>
+        <h1 class=<%= @users?"found": "Not-found"%>>User not Found!!</h1>
+      <% else %>
+        <div class="Search-details">
+          <h1 class="Search-detailshead">User-Id :</h1>
+          <p><%=@users.id%></p>
+        </div>
+        <div class="Search-details">
+          <h1 class="Search-detailshead">First Name :</h1>
+          <p><%= @users.first_name%></p>
+        </div>
+        <div class="Search-details">
+          <h1 class="Search-detailshead">Last Name :</h1>
+          <p><%= @users.last_name%></p>
+        </div>
+        <div class="Search-details">
+          <h1 class="Search-detailshead">Email-Id :</h1>
+          <p><%= @users.email_id%></p>
+        </div>
+        <div class="Search-details" >
+          <h1 class="Search-detailshead">Role :</h1>
+          <p><%= @users.role%></p>
+        </div>
+        <div class="Search-detailss1">
+          <h1 class="Search-detailshead2">Account created at</h1>
+        </div>
+        <div class="Search-details2">
+          <h1 class="Search-detailshead">Date & Time :</h1>
+          <p><%= @users.created_at.in_time_zone("Chennai").to_s(:long) %></p>
+        </div>
+        <div class="User-order1">
+          <% if @users.role == "User" %>
+            <%= link_to "View orders", report_path,class: "User-order", method: "patch" %>
+            <%= form_with(url: "/users/#{@users.id}", method: "patch") do %>
+              <%= submit_tag("Mark As Checker", class: "User-order") %>
+            <% end %>
+          <% else %>
+            <%= form_with(url: "/users/#{@users.id}", method: "delete") do %>
+              <%= submit_tag("Delete Checker", class: "Delete-clerk") %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </body>
 </html>
 <script>
- function searchFunc() {
-    let filter = document.getElementById('Search').value.toUpperCase();
+ function searchFunc()
+ {
+    let filter = document.getElementById('user_name').value.toUpperCase();
     let list = document.getElementById('List');
     let li = list.getElementsByTagName('li');
     for(var i=0;i<li.length;i++)
     {
-
-        if(li[i])
-        {
+      if(li[i])
+      {
           if(li[i].textContent.toUpperCase().indexOf(filter) > -1 && filter.length!=0)
-        {
-          li[i].style.display="block";
-        }
-        else{
-          li[i].style.display="none";
-        }
-        }
+          {
+            li[i].style.display="block";
+          }
+          else
+          {
+            li[i].style.display="none";
+          }
       }
-    }  function Func1() {
+    }
+  }
+  function Func1() {
     document.getElementById("Search-container").style.display="block";
   }
   function MyFunc(id) {
     var name = document.getElementById(id).textContent;
-    document.getElementById("Search").value = name;
-     let list = document.getElementById('List');
-     list.style.display="none";
-
-    }
+    document.getElementById("user_name").value = name;
+    let list = document.getElementById('List');
+    list.style.display="none";
+  }
 
 </script>

@@ -9,9 +9,8 @@
 
 <body class="Descriptions-Page">
   <div class="activemenu">
-    <form action="/menus" method="get">
-      <%= button_tag(value="Back",class: "Back2") %>
-    </form>
+    <%= link_to "Back", menus_path, class: "Back2", method: "get" %>
+    <p class="activemenu-name">Activemenu : <%= Menu.find_by(activemenu: true).name %></p>
   </div>
   <div class="Desc">
     <h1 class="Desc-head"><%= @menuitem.name %></h1>

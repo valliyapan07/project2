@@ -49,10 +49,11 @@
 
 .Home-head{
   color: #fff;
-  font-size: 3vw;
+  font-size: 3.5vw;
   text-align: center;
   padding-top: 1.7vw;
   margin-bottom: 1.5vw;
+  font-family: 'Yatra One', cursive;
 }
 .images{
   float: left;

@@ -1,128 +1,146 @@
-.Menu{
-  background: linear-gradient(90deg,mediumvioletred,#6827b0);
-  margin-left:5vw;
-  margin-top:2vw;
+.Menu {
+  background-color: #def2f1;
+  margin-left: 16vw;
   width: 67%;
-  padding:.7vw 2vw;
+  padding: 0.7vw 2vw;
 }
-.MenuTable{
-  margin:auto;
+.MenuTable {
+  margin: auto;
   width: 85%;
   margin-top: 1.5vw;
+  background-color: #9ad9f0;
+  border-radius: 20px;
 }
-.Menu p{
-  font-size:1.7vw;
-  color: #ffffff;
-  font-family: sans-serif;
-  background-color: mediumvioletred;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.30), 0 1px 2px rgba(0,0,0,0.10);
-  margin:auto;
-  width: 85%;
-  padding: 0.5vw 0.5vw;
-  margin-bottom:2vw;
+.Menu p {
+  font-size: 1.7vw;
+  margin-bottom: 1vw;
+  font-weight: bold;
+}
+.Title {
+  margin-left: 37%;
+  font-size: 2vw;
+  margin-top: 2vw;
+  font-weight: 600;
+}
+.Menu th {
+  background: #2f2869;
+  padding: 1vw;
+  padding-right: 20px;
+  color: whitesmoke;
+  font-size: 1.5vw;
+}
+.Menu td {
+  font-size: 1.5vw;
+  margin-top: 0.5vw;
+  line-height: 2.3vw;
+  text-align: center;
+  padding-right: 3.4vw;
+  padding-left: 4vw;
+}
+.MenuDelete {
+  display: flex;
   margin-top: 2vw;
 }
-.Title{
-  margin-left:37%;
-  font-size: 2vw;
-  margin-top:2vw;
-  font-weight:600;
-}
-.Menu th{
-  background-color: #6827b0;
-  padding:1vw;
-  padding-right:20px;
-  color:whitesmoke;
-  font-size: 1.5vw;
-}
-.Menu td{
-  font-size: 1.5vw;
-  margin-top:.5vw;
-  line-height: 2.3vw;
-  padding-right:3.4vw;
-  padding-left: 4vw;
-  background-color: transparent;
-}
-.Delete{
+.Delete {
   margin-left: 2vw;
   height: 2vw;
   width: 5vw;
-  margin-bottom: .2vw;
+  margin-bottom: 0.2vw;
 }
-.Category-name{
-  font-size: 1.7vw;
-  font-family: sans-serif;
+.Category-name {
+  margin-left: 3vw;
+  font-size: 1.5vw;
+  font-weight: 600;
   margin-top: 1.5vw;
-  color: #ffffff;
-  background-color: mediumvioletred;
-  margin:auto;
-  width: 85%;
-  padding: 0.5vw 0.5vw;
-  margin-bottom: 1vw;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.30), 0 1px 2px rgba(0,0,0,0.10);
 }
-.Refer{
-  margin-left: 63vw;
-  margin-top: 5vw;
+.Refer {
+  margin-left: 85vw;
   position: fixed;
 }
-.Refer h1{
+.Refer h1 {
   font-size: 1.7vw;
   margin-left: 1.2vw;
 }
-.Container{
+.Container {
   display: flex;
 }
-.Unordered-list{
+.Unordered-list {
   list-style: disc;
 }
-.Unordered-list li{
+.Unordered-list li {
   margin-top: 1.2vw;
   font-size: 1.5vw;
 }
-.Line{
+.Unordered-list li a {
+  color: black;
+}
+.Line {
   margin-top: 2vw;
 }
-
-@media screen and (max-width:600px)
-{
-  .Menu{
-    width:67%;
+.Act-Menu {
+  display: flex;
+  padding-top: 10vw;
+  font-size: 2vw;
+  font-weight: 600;
+}
+.ActiveMenu-title {
+  margin-left: 5vw;
+}
+.ActiveMenu-name {
+  margin-left: 1vw;
+}
+.Modal-arrow {
+  width: 3.6%;
+  position: fixed;
+  background-color: #def2f1;
+  padding: 1vw;
+  border-radius: 50%;
+  margin-left: 93vw;
+  margin-top: 28vw;
+}
+@media screen and (max-width: 600px) {
+  .Menu {
+    width: 67%;
     margin-left: 4vw;
   }
-  .Refer{
-     margin-left: 78vw;
-
+  .Refer {
+    margin-left: 78vw;
   }
-  hr{
-    margin-top:1vw;
+  hr {
+    margin-top: 1vw;
   }
-  .MenuTable th{
+  .MenuTable th {
     font-size: 3.3vw;
   }
-  .Menu td{
-     font-size: 3vw;
-     padding:1.3vw;
-     text-align: center;
+  .Menu td {
+    font-size: 3vw;
+    padding: 1.3vw;
+    text-align: center;
   }
-  .Refer h1{
+  .Refer h1 {
     font-size: 3.3vw;
   }
-  .Refer li{
+  .Refer li {
     font-size: 3vw;
     font-weight: 600;
     padding-top: 1vw;
   }
-  .Category-name{
+  .Category-name {
     font-size: 2.8vw;
-    padding-top:1vw;
+    padding-top: 1vw;
   }
-  .Menu .Menu-name{
+  .Menu .Menu-name {
     font-size: 3.2vw;
   }
-  .Delete{
-
+  .Delete {
     height: 3vw;
     width: 5vw;
+  }
+  .Act-Menu {
+    font-size: 3vw;
+  }
+  .Modal-arrow {
+    width: 5%;
+    margin-top: 25rem;
   }
 }

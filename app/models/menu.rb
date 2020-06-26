@@ -1,5 +1,6 @@
 class Menu < ActiveRecord::Base
   has_many :menuitems
+  validates :name, presence: true
 
   def display_menu
     "#{name}"

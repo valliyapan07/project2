@@ -16,8 +16,14 @@ class MenusController < ApplicationController
 
   def create
     name = params[:name]
-    Menu.create!(name: name, activemenu: false)
-    redirect_to menus_path
+    menu = Menu.new(name: name, activemenu: false)
+    if menu.save
+      flash[:notice] = "Menu added successfully"
+      redirect_to menus_path
+    else
+      flash[:error] = menu.errors.full_messages.join(", ")
+      redirect_to menuitems_path
+    end
   end
 
   def update
@@ -31,6 +37,16 @@ class MenusController < ApplicationController
     end
     menu.activemenu = true
     menu.save!
+    redirect_to menus_path
+  end
+
+  def destroy
+    id = params[:id]
+    menu = Menu.find(id)
+    flash[:notice] = "#{menu.name} deleted successfully"
+    menuitems = menu.menuitems
+    menuitems.delete
+    menu.delete
     redirect_to menus_path
   end
 end

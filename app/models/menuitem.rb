@@ -1,5 +1,8 @@
 class Menuitem < ActiveRecord::Base
   belongs_to :menu
+  validates :name, presence: true
+  validates :price, presence: true
+
   def self.match(id, category_name)
     Menuitem.all.where("menu_id= ? and category_name= ?", id, category_name.category_name)
   end
@@ -13,9 +16,11 @@ class Menuitem < ActiveRecord::Base
       puts t.imgaddr
     end
   end
-
   def self.find2(category_name)
     Menuitem.all.where("category_name = ?", category_name)
+  end
+  def self.category
+    Menuitem.select(:category_name).distinct
   end
 
   def self.find1(id, category_name)

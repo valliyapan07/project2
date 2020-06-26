@@ -1,152 +1,198 @@
-
-.Report{
+.OrderContainer {
+  background-color: #def2f1;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 5vw;
+}
+.Report {
   display: flex;
   margin-top: 2vw;
+  padding-top: 2vw;
   border-radius: 4px;
-  margin-left: 25vw;
-  color: #000000;
   font-family: sans-serif;
+  align-items: center;
+  justify-content: center;
 }
-.Report h1{
+.Report h1 {
   margin-right: 2%;
-  font-size: 1.4vw;
+  font-size: 1.5vw;
   margin-left: 1vw;
   padding: 0.4vw 0.5vw;
 }
-.Report .Start,.End{
+.Current-user1 {
+  display: flex;
+  margin-left: 10vw;
+  padding-top: 2vw;
+  font-size: 1.8vw;
+}
+.Current-user1 h1 {
+  font-weight: 600;
+}
+.Current-user1 p {
+  margin-left: 1.4vw;
+}
+.Start,
+.End {
   font-size: 1.2vw;
-  padding: 0vw 0.5vw;
+  padding: 0.6vw;
   color: #453c52;
-  border: 1px solid #BFB8CC;
+  border: 1px solid #bfb8cc;
   border-radius: 0.5vw;
   margin-right: 1vw;
+  width: 20%;
 }
-.View{
-  margin-left: 3vw;
-  background-color: mediumvioletred;
+.View {
+  margin-left: 30vw;
+  justify-content: center;
+  background-color: #2f2869;
+  margin-top: 2vw;
   color: #fff;
   font-size: 1.4vw;
   border-radius: 0.5vw;
-  border: 1px solid #BFB8CC;
+  border: 1px solid #bfb8cc;
   font-family: sans-serif;
   padding: 0.4vw 0.5vw;
+  margin-bottom: 1.5vw;
 }
-
-
-.Report-container {
-  background: linear-gradient(90deg,mediumvioletred,#6827b0);
-  margin-top: 3vw;
-  width: 60vw;
-  margin-left: 22.5vw;
-  margin-bottom: 3vw;
-  padding-bottom: 3vw;
-  padding-top: 2vw;
-}
-
-.Report-table{
-  margin:auto;
-  width:85%;
-  margin-top: 2.5vw;
+.Report-table {
+  margin: auto;
+  width: 85%;
+  margin-top: 1.5vw;
   background-color: transparent;
   font-family: sans-serif;
+  background-color: #9ad9f0;
+  border-radius: 20px;
 }
-.Report-table th{
-  padding:1vw;
+.Report-table th {
+  padding: 1vw;
   font-size: 1.4vw;
-  background-color: #6827b0;
+  background-color: #2f2869;
   color: #fff;
 }
-.Report-table td{
+.Report-table td {
   text-align: center;
-  padding:1vw;
+  padding: 1vw;
   font-size: 1.4vw;
 }
-.Orders-title1{
+.Orders-title1 {
   font-size: 2vw;
   border-radius: 7px;
   color: white;
   font-family: sans-serif;
   width: 60%;
   margin-left: 23vw;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   padding: 1vw 2vw;
   margin-top: 5%;
   text-align: center;
   align-items: center;
 }
-.Orders-title{
+.Orders-title,
+.Orders-title1,
+.Orders-title2 {
   font-family: sans-serif;
   border-radius: 7px;
   color: #fff;
   font-size: 2vw;
   margin-left: 22vw;
-  margin-top: 1.5vw;
+  padding: 0.7vw;
+  background-color: #2f2869;
 }
-
-.Title-box{
- display: flex;
- font-family: sans-serif;
+.Orders-title2 {
+  width: 40%;
+  text-align: center;
+  margin: auto;
+  margin-top: 2vw;
 }
-.Filter-image{
-  height: 50%;
+hr {
+  margin-bottom: 1.5vw;
+}
+.Orders-title1 {
+  width: auto;
+  margin: auto;
+}
+.Report-container {
+  margin-left: 2vw;
+}
+.Title-box {
+  display: flex;
+  font-family: sans-serif;
+  margin: auto;
+  justify-content: center;
+  margin-bottom: 2vw;
+}
+.Filter-image {
+  width: 2.3vw;
+  height: 2.3vw;
   margin-left: 12vw;
   margin-top: 1.5%;
 }
-.Delivered{
+.Delivered {
   color: green;
 }
-.Pending{
+.Pending {
   color: red;
 }
-.Date{
+.Date {
   display: flex;
   width: 85%;
-  margin: 2vw auto;
+  margin-left: 4vw;
+  margin-top: 2vw;
   padding: 1vw 0vw;
-  background-color: mediumvioletred;
+  background-color: #2f2869;
   font-family: sans-serif;
   color: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.30), 0 1px 2px rgba(0,0,0,0.10);
+  border-radius: 10px;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-.Date .Date-from{
+.Date div {
+  display: flex;
+  margin-right: 2vw;
+  font-size: 1.4vw;
+}
+.Date .Date-from {
   font-size: 1.4vw;
   margin-right: 13vw;
 }
-.Date .Date-to{
+.Date .Date-to {
   font-size: 1.4vw;
   margin-right: 1vw;
 }
-.Date h1{
+.Date h1 {
   font-size: 1.4vw;
   margin: 0vw 1vw;
 }
-.Details,.Details1{
+.Details,
+.Details1 {
   height: 10%;
   width: 8%;
   float: right;
   margin-right: 3vw;
 }
-.Modal-bg,.Filter-Modal{
+.Modal-bg,
+.Filter-Modal {
   position: fixed;
   width: 100%;
-  height:100%;
-  background-color: rgba(0,0,0,0.8);
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   justify-content: center;
   align-items: center;
   display: none;
-  transition:visibility 0s opacity 0.5s;
+  transition: visibility 0s opacity 0.5s;
 }
 
-.Filter label{
- margin-left: 5vw;
+.Filter label {
+  margin-left: 5vw;
 }
-.Box1{
+.Box1 {
   display: flex;
 }
-.Modal,.Filter{
+.Modal,
+.Filter {
   border-radius: 3px;
   position: relative;
   background-color: white;
@@ -154,16 +200,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-
 }
-.Filter{
+.Filter {
   height: 40%;
-  width:30%;
+  width: 30%;
   font-size: 1.5vw;
 }
-.Apply{
-  border:1px solid transparent;
-  background-color: green;
+.Apply {
+  border: 1px solid transparent;
+  background-color: #2f2869;
   color: white;
   border-radius: 10px;
   padding: 0.5vw;
@@ -171,91 +216,168 @@
   margin-left: 11vw;
   width: 30%;
 }
-.Filter input[type="radio"]{
+.Filter input[type="radio"] {
   margin-right: 2vw;
 }
-.OrderList ul li{
+.OrderList ul li {
   display: flex;
 }
-.Title-box h2{
+.Title-box h2 {
   font-size: 1.7vw;
   margin-top: 1.5vw;
   margin-left: 0.5vw;
 }
-.Display-name,.Display-name1{
+.Display-name,
+.Display-name1 {
   width: 60%;
 }
-.Display-name1{
+.Display-name1 {
   font-weight: 600;
 }
-.Display-total{
+.Display-total {
   text-align: right;
   margin-right: 3%;
   width: 50%;
 }
-.Display-total1{
+.Display-total1 {
   text-align: right;
   margin-right: 3%;
   width: 20%;
 }
-.Modal-close{
+.Modal-close {
   position: absolute;
   top: 1vw;
   right: 1vw;
   width: 2vw;
 }
-.Modal ol{
-  margin-top:20px;
+.Modal ol {
+  margin-top: 20px;
   font-size: 1.4vw;
 }
-.Modal h1{
-  margin-left:2%;
+.Modal h1 {
+  margin-left: 2%;
   margin-bottom: 3%;
-  font-weight:bolder ;
+  font-weight: bolder;
 }
-.Modal p{
-  margin-bottom:1%;
-  margin-left:15%;
+.Modal p {
+  margin-bottom: 1%;
+  margin-left: 15%;
 }
-.Box1 h2{
+.Box1 h2 {
   margin-bottom: 2%;
   margin-left: 2%;
   font-weight: 600;
 }
-
-.Border{
+.Border {
   border: 2px solid red;
   width: 96%;
   margin-left: 2%;
   margin-top: 2%;
   margin-bottom: 2%;
 }
-.CheckBox{
+.CheckBox {
   margin-top: 0;
   transform: scale(1.7);
   margin-left: 1vw;
   margin-right: 0.7vw;
 }
-@media screen and (max-width:600px){
-  .Report{
-   margin-top:13vw;
-   height: 10vw;
-   margin-left: 11vw;
-   width: 80%;
+@media screen and (max-width: 600px) {
+  .OrderContainer {
+    width: 90%;
+    margin-top: 10vw;
   }
-  .Report h1{
+  .Report {
+    height: 10vw;
+    padding: 0 2vw 0 2vw;
+    margin-bottom: 3vw;
+  }
+  .Report h1 {
     font-size: 3.3vw;
+    line-height: 4vw;
   }
-  .Report input{
+  .Report input {
     height: 5vw;
-    padding:1vw 1vw;
-    font-size: 2vw;
-    width: 100%;
+    font-size: 2.5vw;
+    width: 70%;
+    border-radius: 5px;
   }
-  .View{
-    margin-left: 42%;
-    height:8vw ;
-    padding: .8vw 2vw;
-    font-size: 2.7vw;
+  .View {
+    margin-left: 35vw;
+    font-size: 3.2vw;
+    padding: 0.7vw 1vw 0.7vw 1vw;
+    border-radius: 5px;
+  }
+  .Orders-title,
+  .Orders-title1,
+  .Orders-title2 {
+    font-size: 3.5vw;
+    margin-top: 2vw;
+    padding: 1vw 2vw 1vw 2vw;
+  }
+  .Orders-title2 {
+    width: 40%;
+    justify-content: center;
+    margin-top: 5vw;
+  }
+  .Orders-title1 {
+  }
+  .Title-box h2 {
+    font-size: 3.5vw;
+  }
+  .Filter-image {
+    width: 4vw;
+    height: 4vw;
+  }
+  .Date {
+    margin-top: 5vw;
+    padding: 1.6vw;
+  }
+  .Date div h1,
+  .Date div h2 {
+    font-size: 3vw;
+  }
+  .Report-table {
+    margin-top: 5vw;
+  }
+  .Report-table th {
+    font-size: 3vw;
+  }
+  .Report-table td {
+    font-size: 3vw;
+    padding: 2vw;
+  }
+  .Details1 {
+    width: 3.8vw;
+    height: 3.8vw;
+  }
+  .Modal {
+    width: 80%;
+  }
+  .Filter {
+    width: 70%;
+    font-size: 4vw;
+  }
+  .Modal ol {
+    font-size: 3.5vw;
+    line-height: 4.5vw;
+  }
+  .CheckBox {
+    transform: scale(1);
+  }
+  .Modal-close {
+    width: 5vw;
+    height: 5vw;
+    margin: 1vw 1.5vw 0 0;
+  }
+  .Current-user1 {
+    font-size: 4vw;
+    margin-bottom: 5vw;
+    justify-content: center;
+  }
+  .Apply {
+    margin-left: 25vw;
+    font-size: 4vw;
+    padding: 1vw;
+    border-radius: 7px;
   }
 }

@@ -12,8 +12,11 @@ class Order < ActiveRecord::Base
     elsif filter == "P"
       orders = Order.all.where("ordered_at > ? and ordered_at < ?", from, to)
       orders.all.where(delivered_at: nil)
-    else
+    elsif filter == "D"
       Order.all.where("ordered_at > ? and ordered_at < ? and delivered_at < ?", from, to, Date.today + 1)
+    else
+      user = User.find_by(first_name: "Walk-incustomer")
+      user.orders
     end
   end
 

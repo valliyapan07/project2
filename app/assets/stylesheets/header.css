@@ -1,144 +1,189 @@
-*{
+* {
   box-sizing: border-box;
-  font-family:'Poppins',"sans-serif";
   text-decoration: none;
   scroll-behavior: smooth;
-
 }
-.Text{
-
-  float: left;
-  font-size: 3vw;
-  color: white;
-  font-weight: 600;
-  margin-left: 40.5%;
-  margin-top: 1.2%;
+.Logo {
+  width: 11%;
+  margin: 1vw 0 1vw 2vw;
 }
-.Sign-out{
-  float:right;
-  margin-right: 3vw;
-  margin-top: 1.5%;
-  background-color: #cc0e07dc;
-  border-radius: 5px;
-  border: 1px solid transparent;
-  color: whitesmoke;
-  font-size:1.3vw;
-  font-weight:600;
-  padding:.5vw 1vw;
+.Logo2{
+  width: 8%;
 }
-nav{
-  background-color: #1e1e1e;
-  width: 20%;
+.Links {
   display: flex;
-  float: left;
-  height: inherit;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  margin-left: 2vw;
 }
-
-.List li{
-  background-color:#1e1e1e;
+.Links a {
+  color: white;
+  padding: 0 1.2vw 0 1.2vw;
+  font-size: 1.35vw;
+}
+.Links a:hover {
+  text-decoration: underline;
+  font-size: 1.5vw;
+  padding-bottom: 1vw;
+}
+.User-header1 h1 {
+  font-size: 4vw;
+}
+.User-header1 h2 {
+  font-size: 3vw;
+  margin-top: 1vw;
+  margin-left: 8vw;
+}
+.header2 {
+  margin-left: 0.5vw;
+  margin-top: 1.4vw;
+  font-family: 'Yatra One', cursive;
+}
+.Sign-out {
+  color: whitesmoke;
+  font-size: 1.4vw;
+}
+.Sign-out1 {
+  display: none;
+}
+.Class {
+  display: none;
+}
+.List li {
+  background-color: #1e1e1e;
   font-size: 1.8vw;
   text-align: center;
   padding: 1%;
   line-height: 5vw;
-  border-bottom: 1px solid rgba(255,255,255,0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
-
-.List li a{
+.List li a {
   color: white;
-  border-left: .3vw solid transparent ;
+  border-left: 0.3vw solid transparent;
   display: block;
-  transition: .2s;
+  transition: 0.2s;
 }
 label #btn,
-label #cancel{
+label #cancel {
   position: absolute;
   cursor: pointer;
-  background-color: #cc0e07dc;
+  background-color: #2f2869;
   border-radius: 3px;
-  top:12vw;
+  margin-top: 23vw;
   visibility: hidden;
 }
-label #btn{
+label #btn {
   font-size: 3.5vw;
   color: white;
-  padding:.4vw .8vw;
-  left:2%;
-  top:5vw;
-  transition: all .5s;
+  padding: 0.4vw 0.8vw;
+  left: 2%;
+  top: 5vw;
+  transition: all 0.5s;
 }
-label #cancel{
+label #cancel {
   z-index: 1111;
-  left:-15%;
-
+  left: -15%;
   font-size: 10vw;
-  padding:.4vw 1vw;
+  padding: 0.4vw 1vw;
   color: white;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
-.List li a:hover{
+.List li a:hover {
   padding-left: 2vw;
-  color: #fc5b4f;
-  background:#1e1e1e;
-  border-left-color:#fc5b4f;
+  color: #9ad9f0;
+  background: #1e1e1e;
+  border-left-color: #9ad9f0;
 }
-#check{
+#check {
   display: none;
 }
-#check:checked ~ nav{
+#check:checked ~ nav {
   left: 0;
 }
-#check:checked ~label #btn{
-   left:20%;
-   opacity: 0;
-   pointer-events: none;
+#check:checked ~ label #btn {
+  left: 20%;
+  opacity: 0;
+  pointer-events: none;
 }
-#check:checked ~label #cancel{
-    left:67%;
-    margin-top: 8%;
+#check:checked ~ label #cancel {
+  left: 67%;
+  margin-top: 8%;
 }
 
-@media screen and (max-width:600px){
-  header{
+@media screen and (max-width: 600px) {
+  header {
     height: 15vw;
   }
-  .Text{
+  .Text {
     font-size: 8vw;
     margin-left: 25%;
-    margin-top:3vw;
+    margin-top: 3vw;
   }
   .Sign-out{
-    font-size:3.5vw;
+    font-size: 3.5vw;
     margin-top: 4.9vw;
-    padding:.7vw 1.3vw;
+    padding: 0.7vw 1.3vw;
+  }
+  .Sign-out1 {
+    font-size: 3vw;
+    align-items: center;
+    margin-left: 5vw;
+    display: grid;
+    color: white;
+    text-transform: uppercase;
+  }
+  .Sign-out1:hover {
+    text-decoration: underline;
   }
   label #btn,
-label #cancel{
-  visibility: visible;
-}
-label #btn{
-  padding:1vw 2vw;
-}
-label #cancel{
-  font-size: 5.5vw;
-
-}
-nav{
-  position: absolute;
-  left:-65%;
-  transition: all .5s ease;
-  width: 65%;
-}
-.List li a{
-  border-left: 1vw solid transparent ;
-}
-.List{
-  margin-top: 0;
-}
-#check:checked ~ nav{
-  left: 0;
-}
-.List li{
-  font-size: 5.5vw;
-  line-height: 16vw;
-}
+  label #cancel {
+    visibility: visible;
+  }
+  label #btn {
+    padding: 1vw 2vw;
+  }
+  .Links {
+    display: none;
+  }
+  label #cancel {
+    font-size: 5.5vw;
+  }
+  .Class {
+    display: grid;
+  }
+  nav {
+    position: absolute;
+    left: -65%;
+    transition: all 0.5s ease;
+    width: 65%;
+    background-color: #1e1e1e;
+  }
+  .List li a {
+    border-left: 1vw solid transparent;
+  }
+  .List {
+    margin-top: 0;
+  }
+  #check:checked ~ nav {
+    left: 0;
+  }
+  .List li {
+    font-size: 5.5vw;
+    line-height: 16vw;
+  }
+  .User-header1 {
+    height: 25vw;
+  }
+  .Logo {
+    width: 23%;
+  }
+  .header2 h1 {
+    font-size: 8vw;
+    margin: 2vw 0 2vw 4vw;
+  }
+  .header2 h2 {
+    font-size: 5.5vw;
+    margin: 3vw 0 0vw 25vw;
+  }
 }

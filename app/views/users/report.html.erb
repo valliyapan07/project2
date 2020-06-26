@@ -1,119 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <%# <script src="https://kit.fontawesome.com/fc0bcca8a3.js" crossorigin="anonymous"></script> %>
-</head>
-
-
-<body class="UserReport-OwnerPage">
-<div class="Order-Container" id="User-order">
-  <div class=Current-user1>
-    <h1>Name  :</h1>
-    <p><%=@users? @users.first_name+" "+@users.last_name : "nothing "%></p>
-  </div>
-  <%= form_with(url: "/users/hold", method: "post") do %>
-  <div class="Report" >
-    <h1>Start Date:</h1>
-    <input class="Start" type="Date" placeholder="dd/mm/yyyy" name="from_date">
-    <h1>End Date:</h1>
-    <input class="End" type="Date" placeholder="dd/mm/yyyy" name="to_date">
-  </div>
-  <%= submit_tag("View Report",class: "View") %>
-<% end %>
-
-<% if @users==nil || @from=="" || @to=="" ||User.show1(@from,@to,@users)==[]%>
-<div class="Report-container">
-  <h1 class="Orders-title1">Enter a  valid date Range</h1>
-  </div>
-<% else %>
-<% User.show1(@from,@to,@users).each do |order|%>
-   <div class="Modal-bg" id="<%= order.id%>">
-    <div class="Modal">
-    <div class="Border">
-     <ol>
-      <li class="OrderList">
-        <h1>Items</h1>
-        <ul>
-        <% order.orderitems.each do |orderitem|%>
-          <li>
-            <p class="Display-name"><%= orderitem.menuitem_name%></p>
-            <h2 class="Display-total"><%= orderitem.menuitem_quantity%> x <%= orderitem.menuitem_price%> = <%=orderitem.total%></h2>
-          </li>
-          <% end %>
-        </ul>
-        <h1></h1>
-        <div style="display:flex;">
-          <h1 class="Display-name1">Total Amount:</h1>
-          <p class="Display-total1">Rs.<%= Order.total(order.id)%></p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%# <script src="https://kit.fontawesome.com/fc0bcca8a3.js" crossorigin="anonymous"></script> %>
+  </head>
+  <body class="UserReport-OwnerPage">
+    <div class="OrderContainer" id="User-order">
+      <div class=Current-user1>
+        <h1>Name  :</h1>
+        <p><%=@users? @users.first_name+" "+@users.last_name : "nothing "%></p>
+      </div>
+      <%= form_with(url: "/users/hold", method: "post") do %>
+        <div class="Report" >
+          <h1>Start Date:</h1>
+          <%= date_field_tag("from_date", nil, class: "Start" , placeholder: "dd/mm/yyyy") %>
+          <h1>End Date:</h1>
+          <%= date_field_tag("to_date", nil, class: "End" , placeholder: "dd/mm/yyyy") %>
         </div>
-        <h1>Ordered on</h1>
-        <p><%= order.ordered_at.strftime("%d-%b-%Y")%> at <%= order.ordered_at.strftime("%I:%M %p")%></p>
-        <hr style="color:red;">
-        <div class="Box1">
-          <h1>Delivery status :</h1>
-          <h2 class=<%= order.delivered_at ? "Delivered" : "Pending"%>><%= order.delivered_at ? "Delivered" : "Pending"%></h2>
-
+        <%= submit_tag("View Report",class: "View") %>
+      <% end %>
+      <hr>
+      <div class="Report-container">
+        <div class="Title-box">
+          <h1 class="Orders-title1">Orders Table</h1>
         </div>
-         <%= form_with(url: "/orders/#{order.id}", method: "put") do %>
-        <div class="Box1">
-        <%= check_box_tag(name="delivered",
-                              value=nil,
-                              checked=order.delivered_at ? true : false ,
-                              class: "CheckBox",
-                              onclick:"this.form.submit()"
-                             )
-            %>
-            <h1 style="margin-top:0.5vw;">Click this to mark as <%= order.delivered_at ? "Pending" : "Delivered"%></h1>
+
+      </div>
+      <% if @users==nil || @from=="" || @to=="" ||User.show1(@from,@to,@users)==[]%>
+        <div class="Report-container">
+          <h1 class="Orders-title2">Orders not found</h1>
+        </div>
+      <% else %>
+        <% User.show1(@from,@to,@users).each do |order|%>
+          <div class="Modal-bg" id="<%= order.id%>">
+            <div class="Modal">
+              <div class="Border">
+                <ol>
+                  <li class="OrderList">
+                    <h1>Items</h1>
+                      <ul>
+                        <% order.orderitems.each do |orderitem|%>
+                          <li>
+                            <p class="Display-name"><%= orderitem.menuitem_name%></p>
+                            <h2 class="Display-total"><%= orderitem.menuitem_quantity%> x <%= orderitem.menuitem_price%> = <%=orderitem.total%></h2>
+                          </li>
+                        <% end %>
+                      </ul>
+                      <div style="display:flex;">
+                        <h1 class="Display-name1">Total Amount:</h1>
+                        <p class="Display-total1">Rs.<%= Order.total(order.id)%></p>
+                      </div>
+                      <h1>Ordered at</h1>
+                      <p><%= order.ist(order.ordered_at) %></p>
+                      <hr style="color:red;">
+                      <div class="Box1">
+                        <h1>Delivery status :</h1>
+                        <h2 class=<%= order.delivered_at ? "Delivered" : "Pending"%>><%= order.delivered_at ? "Delivered" : "Pending"%></h2>
+                      </div>
+                  </li>
+                </ol>
+                <%= image_submit_tag('cancel.png',class: "Modal-close",onclick: "func1(#{order.id})") %>
+              </div>
             </div>
-            <% end %>
-      </li>
-      </ol>
-       <%= image_submit_tag('cancel.png',class: "Modal-close",onclick: "func1(#{order.id})") %>
-       </div>
+          </div>
+        <% end %>
+        <div class="Date">
+          <div>
+            <h1>From-Date:</h1>
+            <h2><%= @from? @from.in_time_zone("Chennai").to_s(:short) : @from %></h2>
+          </div>
+          <div>
+            <h1>To-Date:</h1>
+            <h2><%= @to? @to.in_time_zone("Chennai").to_s(:short) : @to %></h2>
+          </div>
+        </div>
+        <table class="Report-table">
+          <tr>
+            <th>Order-Id</th>
+            <th>User-Id</th>
+            <th>Ordered on</th>
+            <th style="padding-right:5vw;">Delivery Status</th>
+          </tr>
+          <% User.show1(@from,@to,@users).each do |order|%>
+            <tr>
+              <td><%= order.id%></td>
+              <td><%= order.user_id%></td>
+              <td><%= order.ist(order.ordered_at) %></td>
+              <td>
+                <%= order.delivered_at ? "Delivered" : "Pending"%>
+                <%= image_submit_tag('details.svg',class: "Details1",onclick: "func(#{order.id})") %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
     </div>
-   </div>
-<% end %>
-
-   <div class="Report-container">
-  <div class="Title-box">
-    <h1 class="Orders-title">Orders Table</h1>
-  </div>
-  <div class="Date">
-    <h1>From-Date :</h1>
-    <h2><%= @from %></h2>
-  </div>
-   <div class="Date" style="float:right;margin-right:7%;">
-    <h1>To-Date :</h1>
-    <h2><%= @to %></h2>
-  </div>
-    <table class="Report-table">
-      <tr>
-        <th>Order-Id</th>
-        <th>User-Id</th>
-        <th>Ordered on</th>
-        <th style="padding-right:5vw;">Delivery Status</th>
-      </tr>
-    <% User.show1(@from,@to,@users).each do |order|%>
-      <tr>
-        <td><%= order.id%></td>
-        <td><%= order.user_id%></td>
-        <td><%= order.ordered_at.strftime("%d-%b-%Y")%></td>
-        <td><%= order.delivered_at ? "Delivered" : "Pending"%>
-           <%= image_submit_tag('details.svg',class: "Details1",onclick: "func(#{order.id})") %>
-      </tr>
-<% end %>
-    </table>
-   </div>
-   <% end %>
-   </div>
-</body>
+  </body>
 </html>
 <script>
-function func(id){
+  function func(id){
     var mod = document.getElementById(id);
     mod.style.display="flex";
   }

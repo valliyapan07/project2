@@ -40,13 +40,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def selected_user
-    return @users if @users
-
-    if session[:user]
-      @users = session[:user]
+  def selected_menuitem
+    return @current_menuitem if @current_menuitem
+    if session[:menuitem]
+      @current_menuitem = session[:menuitem]
     else
-      nil
+      @current_menuitem = Menuitem.first.name
     end
   end
 end

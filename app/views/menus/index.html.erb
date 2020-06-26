@@ -21,17 +21,13 @@
   </div>
   <div class="activemenu">
     <p class="activemenu-name">Activemenu : <%= Menu.find_by(activemenu: true).name %></p>
-    <form action= "userhome" method= "get">
-      <%= button_tag(value="Home", class: "home") %>
-    </form>
-    <form action="cartitems" method="get">
-      <%= button_tag(value="Cart", class: "save",onclick: "save()") %>
-    </form>
+    <%= link_to "Home", userhome_index_path, class: "home", method: "get" %>
+    <%= link_to "Cart", cartitems_path, class: "save", method: "get", onclick: "save()" %>
   </div>
-  <% if @current_user.first_name == "Walk-incustomer" %>
-    <form action= "/pendingorders" method= "get" class="pendingcontainer">
-      <%= button_tag(value="Pending orders", class: "pending") %>
-    </form>
+  <% if @current_user.first_name == "Walk-incustomer" && @current_billingclerk %>
+    <div class="pendingcontainer">
+      <%= link_to "Pending orders", pendingorders_path, class: "pending", method: "get" %>
+    </div>
   <% end %>
   <div class="menu-table">
     <h1 class="table-head">Menu List</h1>
@@ -39,7 +35,7 @@
       <h1 class="menuitem-type">
         <%= category_name.category_name %>
       </h1>
-      <table>
+      <table class="TableMenu">
         <tr>
           <th class="menu-namecolumn">Item</th>
           <th>Price</th>
@@ -52,12 +48,12 @@
             <td class="menu-namecolumn"><%= mi.name %></td>
             <td name="price"><%= mi.price %></td>
             <td>
-              <form action= '/cartitems' method= "post" id="<%= mi.id %>" class="qty">
+              <%= form_with(url: "/cartitems", method: "post", class: "qty", id: "#{mi.id}") do %>
                 <input type="hidden" name="id" value= <%= mi.id %>>
                 <button type="button" class="spins" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
                 <input type="number" name="quantity" min=0 class="table-qty" required >
                 <button type="button" class="spins" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
-              </form>
+              <% end %>
             </td>
             <td><%= button_tag(value="Add",class: "table-add",form: mi.id) %></td>
             <td class="img">
@@ -70,6 +66,7 @@
       </table>
     <% end %>
   </div>
+
 </body>
 
 <script>

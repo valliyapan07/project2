@@ -1,30 +1,17 @@
-.UsersNew1 {
-  margin-left: 5vw;
-  margin-top: 3vw;
-  width: 40%;
-  background: rgba(255,255,255,0.1);
-  padding: 2vw 2vw;
-}
-.Checkers {
-  display: flex;
-  font-family: sans-serif;
-}
-.Search2 {
-  padding: 0.2vw 0.4vw;
-  font-size: 1.2vw;
-  height: 2.2vw;
-}
-.NewChecker-title,.User-title{
+.NewChecker-title,
+.User-title {
   font-size: 2vw;
   text-align: center;
   margin-right: 2vw;
   color: #fff;
-  background: mediumvioletred;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background: #2f2869;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   padding: 0.4vw 0vw;
 }
-.User-title{
+.User-title {
   margin-left: 2vw;
+  border-radius: 10px;
+  margin-bottom: 1vw;
 }
 .Form-section1 {
   margin-top: 2vw;
@@ -47,18 +34,13 @@
   border-radius: 10px;
   margin-top: 1vw;
 }
-.Vline {
-  border-left: 3px solid rgb(235, 94, 94);
-  height: 44vw;
-  margin-left: 1vw;
-}
 
 .Unordered-list1,
 .Unordered-list2 {
-  width: 50%;
-  margin-left: 7vw;
   border-radius: 5px;
   margin-top: 0.2vw;
+  width: 30%;
+  margin-left: 30.5vw;
   background-color: transparent;
   border: 0.5px solid rgb(77, 75, 75);
   border-top: transparent;

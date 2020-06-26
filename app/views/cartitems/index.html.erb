@@ -11,9 +11,7 @@
   <div class="activemenu">
     <p class="activemenu-name2">Activemenu : <%= Menu.find_by(activemenu: true).name %></p>
   </div>
-  <form action="/menus" method="get">
-    <%= button_tag(value="Add more items",class: "Back") %>
-  </form>
+  <%= link_to "Add more items", menus_path,class: "Back", method: "get" %>
   <div class="menu-table">
     <h1 class="Cart-head">Your Cart Items</h1>
     <table>

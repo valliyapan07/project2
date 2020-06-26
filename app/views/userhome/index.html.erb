@@ -8,9 +8,7 @@
 </head>
 
 <body class="Userhome-page">
-  <form action="/menus" method="get">
-    <%= button_tag(value="Back",class: "Back") %>
-  </form>
+  <%= link_to "Back", menus_path,class: "Back", method: "get" %>
   <div class="User-details">
     <p class="UserDetails-para">User name: <%= @current_user.first_name %></p>
     <p class="UserDetails-para">User id: <%= @current_user.id %></p>

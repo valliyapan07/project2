@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   end
 
   def self.show
-    User.all.where(role: "User")
+    User.all.where("role = ? or role = ?", "User", "Bill Checker")
   end
 
   def self.show1(from, to, user)

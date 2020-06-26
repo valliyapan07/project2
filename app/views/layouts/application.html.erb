@@ -5,7 +5,7 @@
     <title>Project2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,7 +13,7 @@
   <body>
     <% if !@owner && @current_user %>
       <p class="User-header">
-        <% if @current_user.first_name == "Walk-incustomer" %>
+        <% if @current_user.first_name == "Walk-incustomer" && @current_billingclerk %>
           Welcome <%= @current_billingclerk.first_name %>!
         <% else %>
           Welcome <%= @current_user.first_name %>!
@@ -21,16 +21,25 @@
         <%= link_to "Sign out", destroy_session_path,class: "signout", method: "delete" %>
       </p>
       <div class="header">
-        Maharaja Restaurant
+        <%= image_tag("logo1.png", class: "Logo2")%>
+        Maharajah Restaurant
       </div>
     <% end %>
     <% if @owner %>
-      <p class="User-header">
-        Welcome <%= @current_user.first_name %>!
-        <%= link_to "Sign out", destroy_session_path,class: "signout", method: "delete" %>
-      </p>
-      <div class="header">
-        Maharaja Restaurant
+      <div class="User-header1">
+        <%= image_tag("logo1.png", class: "Logo")%>
+        <div class="header2">
+          <h1>Maharajah</h1>
+          <h2>Restaurant</h2>
+        </div>
+        <nav class="Links">
+          <a href="/users"> Search Users</a>
+          <a href="/menuitems"> Manage Menu</a>
+          <a href="/menus"> View Menu</a>
+          <a href="/orders"> Sales Report</a>
+          <%= link_to "Sign out", destroy_session_path,class: "Sign-out", method: "delete" %>
+        </nav>
+        <%= link_to "Sign out", destroy_session_path,class: "Sign-out1", method: "delete" %>
       </div>
       <input type="checkbox" id="check">
       <label for="check">
@@ -40,11 +49,9 @@
       <nav class="Class">
         <ul class="List">
           <li><a href="/users"> Search Users</a></li>
-          <li><a href="/users/checkers"> Manage Checkers</a></li>
           <li><a href="/menuitems"> Manage Menu</a></li>
           <li><a href="/menus"> View Menu</a></li>
           <li class="Orders-design"><a href="/orders"> Sales Report</a></li>
-          <li><a href="/orders/users"> Check Order</a></li>
         </ul>
       </nav>
     <% end %>
