@@ -319,8 +319,6 @@ hr {
     justify-content: center;
     margin-top: 5vw;
   }
-  .Orders-title1 {
-  }
   .Title-box h2 {
     font-size: 3.5vw;
   }
@@ -345,6 +343,7 @@ hr {
   .Report-table td {
     font-size: 3vw;
     padding: 2vw;
+    color: #000000;
   }
   .Details1 {
     width: 3.8vw;

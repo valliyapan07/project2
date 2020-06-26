@@ -341,6 +341,10 @@
   .Select-Item1 {
     display: flex;
   }
+  .Select-Item4 select{
+    width: 90%;
+    font-size: 3vw;
+  }
   .Select-Item5 div h1 {
     font-size: 3.8vw;
   }

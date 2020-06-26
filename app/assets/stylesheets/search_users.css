@@ -84,11 +84,7 @@
   margin-top: 2vw;
   margin-bottom: 2vw;
 }
-.Search-details,
-.Search-details1,
-.Search-details2 {
-  margin-left: 15vw;
-}
+
 .Search-details p,
 .Search-details1 p,
 .Search-details2 p {
@@ -168,6 +164,7 @@
     padding-left: 1.5vw;
     padding-right: 1.5vw;
   }
+
   .Search-container1 h1,
   .Search-container1 p {
     font-size: 3.5vw;
@@ -180,4 +177,13 @@
   .User-title {
     margin-bottom: 2vw;
   }
+  .Search-details,
+  .Search-details1,
+  .Search-details2 {
+    margin-left: 4vw;
+  }
+  .Search-container1 {
+    width: 80%;
+  }
+
 }
