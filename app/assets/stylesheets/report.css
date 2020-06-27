@@ -133,7 +133,7 @@ hr {
 .Pending {
   color: red;
 }
-.Date {
+.Date,.Date1 {
   display: flex;
   width: 85%;
   margin-left: 4vw;
@@ -281,6 +281,21 @@ hr {
   margin-left: 1vw;
   margin-right: 0.7vw;
 }
+.TurnOver {
+  font-size: 2.5vw;
+  margin-top: 3vw;
+  padding-bottom: 2vw;
+  text-align: center;
+  font-family: sans-serif;
+}
+.Date1 {
+  margin-left: 5vw;
+  justify-content: center;
+  font-size: 1.5vw;
+}
+.Date1 h2 {
+  margin-left: 1vw;
+}
 @media screen and (max-width: 600px) {
   .OrderContainer {
     width: 90%;
@@ -378,5 +393,14 @@ hr {
     font-size: 4vw;
     padding: 1vw;
     border-radius: 7px;
+  }
+  .TurnOver {
+    font-size: 4vw;
+    margin-top: 6vw;
+    padding-bottom: 6vw;
+  }
+  .Date1 {
+    font-size: 2.7vw;
+    padding: 1.5vw;
   }
 }

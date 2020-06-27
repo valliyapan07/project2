@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :menus
   patch "pendingorders/new", to: "pendingorders#show"
-  patch "users/show/edit", to: "users#edit", as: :report
+  patch "users/show", to: "users#show", as: :report
   get "users/new", to: "sessions#new1"
   patch "users/select", to: "users#select"
   post "users/hold", to: "users#hold"

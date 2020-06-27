@@ -33,4 +33,24 @@ class Order < ActiveRecord::Base
     end
     sum
   end
+
+  def self.turnover
+    sum = 0
+    Order.all.each do |order|
+      order.orderitems.each do |orderitem|
+        sum = sum + (orderitem.menuitem_price * orderitem.menuitem_quantity)
+      end
+    end
+    sum
+  end
+
+  def self.givenOrder(orders)
+    sum = 0
+    orders.each do |order|
+      order.orderitems.each do |orderitem|
+        sum = sum + (orderitem.menuitem_price * orderitem.menuitem_quantity)
+      end
+    end
+    sum
+  end
 end

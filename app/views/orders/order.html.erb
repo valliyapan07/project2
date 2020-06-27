@@ -119,6 +119,10 @@
           </div>
         </div>
       </div>
+      <div class="Date1">
+        <h1>Total Sales from <%= @from%> to <%= @to %> : </h1>
+        <h2><%= Order.givenOrder(Order.display(@from,@to,@filter)) %></h2>
+      </div>
       <table class="Report-table">
         <tr>
           <th>Order-Id</th>
@@ -137,6 +141,7 @@
         <% end %>
       </table>
       <% end %>
+      <h1 class="TurnOver">Total Sales(Turn-Over) : <%=Order.turnover%></h1>
     </div>
   </body>
 </html>

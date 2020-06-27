@@ -71,7 +71,7 @@ class UsersController < ApplicationController
     redirect_to report_path
   end
 
-  def edit
+  def show
     if session[:user]
       name = session[:user].split(" ")
       name[1] = name[1] ? name[1] : ""
