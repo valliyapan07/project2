@@ -159,12 +159,14 @@
     padding-top: 2vw;
     padding-bottom: 1.7vw;
   }
-  .User-order {
+  .User-order,.Delete-clerk{
     font-size: 2.7vw;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
   }
-
+  .Delete-clerk{
+    background-color: rgb(253, 17, 17);
+  }
   .Search-container1 h1,
   .Search-container1 p {
     font-size: 3.5vw;
